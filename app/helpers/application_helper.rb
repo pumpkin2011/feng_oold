@@ -54,4 +54,9 @@ module ApplicationHelper
  def render_common_china_city_address(param)
    ChinaCity.get(param.district, prepend_parent: true)
  end
+
+ # 手机号码显示: 186-2124-8234
+ def render_common_mobile(mobile)
+   "#{mobile.slice(0,3)}-#{mobile.slice(3,4)}-#{mobile.slice(7,4)}"
+ end
 end
