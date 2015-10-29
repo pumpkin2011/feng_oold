@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029074630) do
+ActiveRecord::Schema.define(version: 20151029080117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.integer  "user_zhao_id"
+    t.string   "name",         null: false
+    t.string   "province",     null: false
+    t.string   "city",         null: false
+    t.string   "district",     null: false
+    t.string   "address",      null: false
+    t.text     "introduction", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "companies", ["city"], name: "index_companies_on_city", using: :btree
+  add_index "companies", ["deleted_at"], name: "index_companies_on_deleted_at", using: :btree
+  add_index "companies", ["district"], name: "index_companies_on_district", using: :btree
+  add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
+  add_index "companies", ["province"], name: "index_companies_on_province", using: :btree
+  add_index "companies", ["user_zhao_id"], name: "index_companies_on_user_zhao_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "user_zhao_id"
@@ -210,6 +230,7 @@ ActiveRecord::Schema.define(version: 20151029074630) do
   add_index "user_zhaos", ["reset_password_token"], name: "index_user_zhaos_on_reset_password_token", unique: true, using: :btree
   add_index "user_zhaos", ["unlock_token"], name: "index_user_zhaos_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "companies", "user_zhaos"
   add_foreign_key "contacts", "user_zhaos"
   add_foreign_key "labor_intentions", "labors"
   add_foreign_key "labors", "user_songs"
