@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029074322) do
+ActiveRecord::Schema.define(version: 20151029074630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,22 @@ ActiveRecord::Schema.define(version: 20151029074322) do
   add_index "industries", ["name_seo"], name: "index_industries_on_name_seo", unique: true, using: :btree
   add_index "industries", ["parent_id"], name: "index_industries_on_parent_id", using: :btree
   add_index "industries", ["rgt"], name: "index_industries_on_rgt", using: :btree
+
+  create_table "labor_intentions", force: :cascade do |t|
+    t.integer  "labor_id"
+    t.string   "salary"
+    t.string   "province"
+    t.string   "city"
+    t.string   "district"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "labor_intentions", ["city"], name: "index_labor_intentions_on_city", using: :btree
+  add_index "labor_intentions", ["district"], name: "index_labor_intentions_on_district", using: :btree
+  add_index "labor_intentions", ["labor_id"], name: "index_labor_intentions_on_labor_id", using: :btree
+  add_index "labor_intentions", ["province"], name: "index_labor_intentions_on_province", using: :btree
+  add_index "labor_intentions", ["salary"], name: "index_labor_intentions_on_salary", using: :btree
 
   create_table "labors", force: :cascade do |t|
     t.integer  "user_song_id"
@@ -195,5 +211,6 @@ ActiveRecord::Schema.define(version: 20151029074322) do
   add_index "user_zhaos", ["unlock_token"], name: "index_user_zhaos_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "contacts", "user_zhaos"
+  add_foreign_key "labor_intentions", "labors"
   add_foreign_key "labors", "user_songs"
 end
