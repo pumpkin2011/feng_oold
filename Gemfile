@@ -48,6 +48,7 @@ group :development do
   gem 'spring'
   gem 'rack-livereload'
   gem 'guard-livereload'
+  gem 'guard-rspec'
   gem 'annotate'
 end
 

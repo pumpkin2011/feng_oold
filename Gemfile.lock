@@ -86,6 +86,10 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
+    guard-rspec (4.6.4)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     jbuilder (2.3.2)
@@ -154,6 +158,10 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.1)
@@ -224,6 +232,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   guard-livereload
+  guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
   pg
