@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029060033) do
+ActiveRecord::Schema.define(version: 20151029071547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "user_zhao_id"
+    t.string   "name",         null: false
+    t.string   "mobile",       null: false
+    t.string   "gender",       null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "contacts", ["deleted_at"], name: "index_contacts_on_deleted_at", using: :btree
+  add_index "contacts", ["gender"], name: "index_contacts_on_gender", using: :btree
+  add_index "contacts", ["mobile"], name: "index_contacts_on_mobile", using: :btree
+  add_index "contacts", ["name"], name: "index_contacts_on_name", using: :btree
+  add_index "contacts", ["user_zhao_id"], name: "index_contacts_on_user_zhao_id", using: :btree
 
   create_table "user_admins", force: :cascade do |t|
     t.string   "name",                                null: false
@@ -112,4 +128,5 @@ ActiveRecord::Schema.define(version: 20151029060033) do
   add_index "user_zhaos", ["reset_password_token"], name: "index_user_zhaos_on_reset_password_token", unique: true, using: :btree
   add_index "user_zhaos", ["unlock_token"], name: "index_user_zhaos_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "contacts", "user_zhaos"
 end
