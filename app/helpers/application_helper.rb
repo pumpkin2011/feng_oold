@@ -48,4 +48,10 @@ module ApplicationHelper
       "运"
     end
   end
+
+
+  # 获取完成地址: 海市市辖区浦东新区
+ def render_common_china_city_address(param)
+   ChinaCity.get(param.district, prepend_parent: true)
+ end
 end
