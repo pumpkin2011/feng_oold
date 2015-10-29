@@ -36,6 +36,7 @@ gem 'seedbank'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -47,4 +48,9 @@ group :development do
   gem 'rack-livereload'
   gem 'guard-livereload'
   gem 'annotate'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda'
 end
