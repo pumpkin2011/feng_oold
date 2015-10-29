@@ -31,6 +31,7 @@ gem 'paranoia'
 gem 'aasm'
 gem 'kaminari'
 gem 'awesome_nested_set'
+gem 'china_city'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
