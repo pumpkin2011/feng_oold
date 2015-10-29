@@ -26,6 +26,7 @@ gem 'bower-rails'
 gem 'seedbank'
 gem 'devise'
 gem 'slim-rails'
+gem 'enumerize'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
