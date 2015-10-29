@@ -29,6 +29,7 @@ gem 'slim-rails'
 gem 'enumerize'
 gem 'paranoia'
 gem 'aasm'
+gem 'kaminari'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
