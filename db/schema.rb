@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029073539) do
+ActiveRecord::Schema.define(version: 20151029074322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,36 @@ ActiveRecord::Schema.define(version: 20151029073539) do
   add_index "industries", ["name_seo"], name: "index_industries_on_name_seo", unique: true, using: :btree
   add_index "industries", ["parent_id"], name: "index_industries_on_parent_id", using: :btree
   add_index "industries", ["rgt"], name: "index_industries_on_rgt", using: :btree
+
+  create_table "labors", force: :cascade do |t|
+    t.integer  "user_song_id"
+    t.string   "name",         null: false
+    t.string   "mobile",       null: false
+    t.string   "idcard",       null: false
+    t.string   "gender",       null: false
+    t.date     "birthday",     null: false
+    t.string   "channel",      null: false
+    t.string   "province",     null: false
+    t.string   "city",         null: false
+    t.string   "district",     null: false
+    t.string   "state",        null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "labors", ["birthday"], name: "index_labors_on_birthday", using: :btree
+  add_index "labors", ["channel"], name: "index_labors_on_channel", using: :btree
+  add_index "labors", ["city"], name: "index_labors_on_city", using: :btree
+  add_index "labors", ["deleted_at"], name: "index_labors_on_deleted_at", using: :btree
+  add_index "labors", ["district"], name: "index_labors_on_district", using: :btree
+  add_index "labors", ["gender"], name: "index_labors_on_gender", using: :btree
+  add_index "labors", ["idcard"], name: "index_labors_on_idcard", using: :btree
+  add_index "labors", ["mobile"], name: "index_labors_on_mobile", using: :btree
+  add_index "labors", ["name"], name: "index_labors_on_name", using: :btree
+  add_index "labors", ["province"], name: "index_labors_on_province", using: :btree
+  add_index "labors", ["state"], name: "index_labors_on_state", using: :btree
+  add_index "labors", ["user_song_id"], name: "index_labors_on_user_song_id", using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.string   "name",       null: false
@@ -165,4 +195,5 @@ ActiveRecord::Schema.define(version: 20151029073539) do
   add_index "user_zhaos", ["unlock_token"], name: "index_user_zhaos_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "contacts", "user_zhaos"
+  add_foreign_key "labors", "user_songs"
 end
