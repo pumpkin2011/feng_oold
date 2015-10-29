@@ -1,1 +1,5 @@
-
+asset "admin-lte"
+asset "font-awesome"
+asset "ionicons"
+asset "html5shiv"
+asset "respond"

@@ -1,5 +1,10 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
+    "admin-lte": "latest",
+    "font-awesome": "latest",
+    "ionicons": "latest",
+    "html5shiv": "latest",
+    "respond": "latest"
   }
 }

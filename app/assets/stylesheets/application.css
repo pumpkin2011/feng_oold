@@ -10,6 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+ * AdminLTE
+ *= require admin-lte/bootstrap/css/bootstrap
+ *= require font-awesome/css/font-awesome
+ *= require ionicons/css/ionicons
+ *= require admin-lte/dist/css/AdminLTE
+ *= require admin-lte/dist/css/skins/skin-blue
  */
