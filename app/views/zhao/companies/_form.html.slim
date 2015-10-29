@@ -1,0 +1,22 @@
+- if @company.errors.any?
+  = render partial: 'shared/common_errors', locals: { model: @company}
+
+= form_for [:zhao, @company], remote: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name,class:'form-control'
+
+  = render partial: 'shared/china_city', locals: {form: f}
+
+  .form-group
+    = f.label :address
+    = f.text_field :address,class:'form-control'
+  .form-group
+    = f.label :introduction
+    = f.text_area :introduction,class:'form-control'
+  .form-group
+    = f.submit class: 'btn btn-primary'
+    = link_to t('.back'), zhao_companies_path, class: 'btn btn-danger',
+        data: { dismiss: 'modal' }
+
+= javascript_include_tag 'china_city/jquery.china_city.js'

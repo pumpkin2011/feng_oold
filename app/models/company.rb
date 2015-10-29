@@ -25,4 +25,11 @@
 #
 
 class Company < ActiveRecord::Base
+  acts_as_paranoid
+  belongs_to :user_zhao
+  default_scope {order('updated_at desc')}
+  validates_presence_of :name, :province, :city, :district, :address, :introduction
+  validates :name, length: { in: 2..50 }, allow_blank: true
+  validates :introduction, length: {minimum: 10 },allow_blank: true
+  validates :address, length: {in: 5..50 }, allow_blank: true
 end
