@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029080117) do
+ActiveRecord::Schema.define(version: 20151029101027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,17 @@ ActiveRecord::Schema.define(version: 20151029080117) do
   add_index "labors", ["province"], name: "index_labors_on_province", using: :btree
   add_index "labors", ["state"], name: "index_labors_on_state", using: :btree
   add_index "labors", ["user_song_id"], name: "index_labors_on_user_song_id", using: :btree
+
+  create_table "nodes", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "icon",         null: false
+    t.string   "uri",          null: false
+    t.string   "domain",       null: false
+    t.datetime "published_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "positions", force: :cascade do |t|
     t.string   "name",       null: false
