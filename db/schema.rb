@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029072549) do
+ActiveRecord::Schema.define(version: 20151029073539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,24 @@ ActiveRecord::Schema.define(version: 20151029072549) do
   add_index "industries", ["name_seo"], name: "index_industries_on_name_seo", unique: true, using: :btree
   add_index "industries", ["parent_id"], name: "index_industries_on_parent_id", using: :btree
   add_index "industries", ["rgt"], name: "index_industries_on_rgt", using: :btree
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "name_seo",   null: false
+    t.integer  "parent_id"
+    t.integer  "lft",        null: false
+    t.integer  "rgt",        null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "positions", ["deleted_at"], name: "index_positions_on_deleted_at", using: :btree
+  add_index "positions", ["lft"], name: "index_positions_on_lft", using: :btree
+  add_index "positions", ["name"], name: "index_positions_on_name", using: :btree
+  add_index "positions", ["name_seo"], name: "index_positions_on_name_seo", unique: true, using: :btree
+  add_index "positions", ["parent_id"], name: "index_positions_on_parent_id", using: :btree
+  add_index "positions", ["rgt"], name: "index_positions_on_rgt", using: :btree
 
   create_table "user_admins", force: :cascade do |t|
     t.string   "name",                                null: false
