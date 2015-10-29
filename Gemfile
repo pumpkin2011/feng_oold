@@ -32,6 +32,8 @@ gem 'aasm'
 gem 'kaminari'
 gem 'awesome_nested_set'
 gem 'china_city'
+gem 'sidekiq'
+gem 'sinatra', :require => nil
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

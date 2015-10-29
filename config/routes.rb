@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   root 'welcome#index'
   # 送人方
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   # 运营方
   namespace :admin do
     root 'welcome#index'
+    mount Sidekiq::Web => '/sidekiq'
   end
   mount ChinaCity::Engine => '/china_city'
   devise_for :user_zhaos
