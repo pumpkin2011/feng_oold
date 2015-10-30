@@ -64,6 +64,7 @@ group :development do
   gem 'thin'
   gem 'foreman'
   gem 'quiet_assets'
+  gem 'pry-rails'
 end
 
 group :test do
