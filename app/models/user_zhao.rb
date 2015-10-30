@@ -37,6 +37,7 @@
 #
 
 class UserZhao < ActiveRecord::Base
+  has_many :contacts
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

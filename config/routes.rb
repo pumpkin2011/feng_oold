@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # 招聘方
   namespace :zhao do
     root 'welcome#index'
+    resources :contacts
   end
 
   # 运营方

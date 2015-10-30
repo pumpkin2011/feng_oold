@@ -1,0 +1,22 @@
+.row
+  .col-xs-1
+    = Contact.human_attribute_name(:name)
+    '：
+  .col-xs-11
+    = @contact.name
+.row
+  .col-xs-1
+    = Contact.human_attribute_name(:gender)
+    '：
+  .col-xs-11
+    = @contact.gender_text
+.row
+  .col-xs-1
+    = Contact.human_attribute_name(:mobile)
+    '：
+  .col-xs-11
+    = render_common_mobile @contact.mobile
+.row
+  .col-xs-1
+    = link_to t('back'), zhao_contacts_path, class: 'btn btn-primary',
+      data: { dismiss: 'modal' }
