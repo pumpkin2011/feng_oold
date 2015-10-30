@@ -1,0 +1,20 @@
+.row
+  .col-xs-12
+    = link_to t('.new_company'), new_zhao_company_path, remote: true, class: 'btn btn-primary'
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title = Contact.model_name.human
+        .box-tools
+          = paginate @companies
+      .box-body.table-responsive.no-padding
+        table.table.table-hover
+          tbody
+            tr
+              th = Company.human_attribute_name(:name)
+              th = Company.human_attribute_name(:province)
+              th = Company.human_attribute_name(:address)
+              th = Company.human_attribute_name(:jobs)
+              th = t ('.options')
+            = render @companies

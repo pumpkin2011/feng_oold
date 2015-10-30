@@ -1,0 +1,29 @@
+.col-xs-12
+  .nav-tabs-custom
+    ul.nav.nav-tabs
+      li.active
+        a data-toggle="tab" href="#activity"  基本信息
+      li
+        a data-toggle="tab" href="#timeline"  该公司下职位
+    .tab-content
+      #activity.active.tab-pane
+        /! Post
+        .post
+          .box
+            .box-header.with-border
+              h3.box-title = @company.name
+            .box-body
+               = render_common_china_city_address(@company)
+               = @company.address
+            /! /.box-body
+            .box-footer
+              = @company.introduction
+            /! /.box-footer
+        /! /.post
+      /! /.tab-pane
+      #timeline.tab-pane
+        h3 职位列表
+      /! /.tab-pane
+    /! /.tab-content
+
+  /! /.nav-tabs-custom

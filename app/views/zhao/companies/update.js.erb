@@ -1,0 +1,7 @@
+<% if @company.errors.any? %>
+  $('#common_modal #common-errors').remove();
+  $('#common_modal .modal-body').prepend("<%= j( render partial: 'shared/common_errors', locals: { model: @company } ) %>");
+<% else %>
+  $('#common_modal').modal('hide');
+  $("#company-<%=@company.id%>").replaceWith("<%= j(render @company) %>")
+<% end %>

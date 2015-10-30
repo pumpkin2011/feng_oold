@@ -26,7 +26,13 @@
 
 FactoryGirl.define do
   factory :company do
-    
+    user_zhao_id '1'
+    name "淘帮忙"
+    province "310000"
+    city  "310100"
+    district "310115"
+    address "海外高桥保税区富特北路18号联安大厦5楼"
+    introduction "淘帮忙项目起源地, 希望我们能离梦想更进一步"
   end
 
 end
