@@ -61,6 +61,8 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'annotate'
+  gem 'thin'
+  gem 'foreman'
 end
 
 group :test do
