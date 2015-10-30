@@ -63,6 +63,7 @@ group :development do
   gem 'annotate'
   gem 'thin'
   gem 'foreman'
+  gem 'quiet_assets'
 end
 
 group :test do
