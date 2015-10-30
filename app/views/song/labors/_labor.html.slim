@@ -1,0 +1,17 @@
+tr id="labor-#{labor.id}"
+  td = link_to labor.name, song_labor_path(labor),remote: true
+  td = render_labor_gender_with_age(labor)
+  td = render_common_mobile(labor.mobile)
+  td = labor.channel_text
+  td = labor.aasm.human_state
+  td
+    .btn-group
+			= link_to '详情', [:song, labor],remote: true, class: 'btn btn-primary'
+			button.btn.btn-primary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+				span.caret
+				span.sr-only Toggle Dropdown
+			ul.dropdown-menu
+				li
+					= link_to '修改', edit_song_labor_path(labor),remote: true
+				li
+					= link_to '删除', [:song, labor],remote: true, data: {:confirm => 'Are you sure?'}, :method => :delete

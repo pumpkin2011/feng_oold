@@ -1,0 +1,35 @@
+= form_for [:song, @labor], remote: true do |f|
+  h3 基本信息
+  .divider
+  .form_group
+    = f.label :idcard
+    = f.text_field :idcard, class: 'form-control'
+
+  .form_group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  .form_group
+    = f.label :mobile
+    = f.text_field :mobile, class: 'form-control'
+
+  = render partial: 'shared/china_city', locals: {form: f}
+
+  h3 找活要求
+  = f.fields_for :intention_attributes, @labor.intention do |intention_form|
+    = render partial: 'shared/china_city', locals: {form: intention_form}
+
+    .form_group
+      = intention_form.label :salary
+      = intention_form.select :salary, LaborIntention.salary.options,{include_blank: false}, class: 'form-control'
+
+    .form_group
+			= intention_form.label :position_ids
+			= intention_form.select :position_ids, nested_set_options(Position, @position) {|i| "#{'-' * i.level} #{i.name}" },{include_blank: true}, class: 'form-control'
+  br
+    
+  .form_group
+    = f.submit "确定", class: "btn btn-primary"
+    = link_to "返回",[:song, @labor], class: "btn btn-danger"
+
+= javascript_include_tag 'china_city/jquery.china_city'

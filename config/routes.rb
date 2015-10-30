@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # 送人方
   namespace :song do
     root 'welcome#index'
+    resources :labors
   end
 
   # 招聘方

@@ -26,6 +26,10 @@ class Position < ActiveRecord::Base
   acts_as_nested_set
   acts_as_paranoid
 
+  has_and_belongs_to_many :intentions, class_name: 'LaborIntention',
+                                       join_table: 'intentions_positions',
+                                       association_foreign_key: 'intention_id'
+
   validates_presence_of :name, :name_seo
   validates :name, :name_seo, length:{ in: 2..20}, allow_blank: true
   validates_uniqueness_of :name_seo, case_sensitive: false, allow_blank: true
