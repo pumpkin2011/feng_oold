@@ -22,11 +22,10 @@
 
 FactoryGirl.define do
   factory :contact do
-    user_zhao nil
-name "MyString"
-mobile "MyString"
-gender "MyString"
-deleted_at "2015-10-29 15:15:47"
+    association :user_zhao
+    name "联系人XXX"
+    mobile "13092617908"
+    gender "male"
   end
 
 end

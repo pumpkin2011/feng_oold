@@ -25,4 +25,5 @@
 #
 
 class Company < ActiveRecord::Base
+  belongs_to :user_zhao
 end

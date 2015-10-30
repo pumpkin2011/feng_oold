@@ -26,7 +26,13 @@
 
 FactoryGirl.define do
   factory :company do
-    
+    association :user_zhao
+    name '公司xxxxx'
+    province '000000'
+    city '111111'
+    district '222222'
+    address 'xxxxxxxxxxxx'
+    introduction 'xxxxxxxxxxxxxx'
   end
 
 end

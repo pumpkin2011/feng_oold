@@ -37,6 +37,8 @@
 #
 
 class UserZhao < ActiveRecord::Base
+  has_many :jobs
+
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

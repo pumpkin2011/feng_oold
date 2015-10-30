@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029101027) do
+ActiveRecord::Schema.define(version: 20151030031734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,38 @@ ActiveRecord::Schema.define(version: 20151029101027) do
   add_index "industries", ["name_seo"], name: "index_industries_on_name_seo", unique: true, using: :btree
   add_index "industries", ["parent_id"], name: "index_industries_on_parent_id", using: :btree
   add_index "industries", ["rgt"], name: "index_industries_on_rgt", using: :btree
+
+  create_table "jobs", force: :cascade do |t|
+    t.integer  "user_zhao_id"
+    t.integer  "company_id"
+    t.integer  "contact_id"
+    t.integer  "position_id"
+    t.string   "name",         null: false
+    t.string   "gender",       null: false
+    t.integer  "age_min",      null: false
+    t.integer  "age_max",      null: false
+    t.integer  "salary_basic", null: false
+    t.integer  "salary_min",   null: false
+    t.integer  "salary_max",   null: false
+    t.string   "state",        null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "jobs", ["age_max"], name: "index_jobs_on_age_max", using: :btree
+  add_index "jobs", ["age_min"], name: "index_jobs_on_age_min", using: :btree
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
+  add_index "jobs", ["contact_id"], name: "index_jobs_on_contact_id", using: :btree
+  add_index "jobs", ["deleted_at"], name: "index_jobs_on_deleted_at", using: :btree
+  add_index "jobs", ["gender"], name: "index_jobs_on_gender", using: :btree
+  add_index "jobs", ["name"], name: "index_jobs_on_name", using: :btree
+  add_index "jobs", ["position_id"], name: "index_jobs_on_position_id", using: :btree
+  add_index "jobs", ["salary_basic"], name: "index_jobs_on_salary_basic", using: :btree
+  add_index "jobs", ["salary_max"], name: "index_jobs_on_salary_max", using: :btree
+  add_index "jobs", ["salary_min"], name: "index_jobs_on_salary_min", using: :btree
+  add_index "jobs", ["state"], name: "index_jobs_on_state", using: :btree
+  add_index "jobs", ["user_zhao_id"], name: "index_jobs_on_user_zhao_id", using: :btree
 
   create_table "labor_intentions", force: :cascade do |t|
     t.integer  "labor_id"
@@ -243,6 +275,10 @@ ActiveRecord::Schema.define(version: 20151029101027) do
 
   add_foreign_key "companies", "user_zhaos"
   add_foreign_key "contacts", "user_zhaos"
+  add_foreign_key "jobs", "companies"
+  add_foreign_key "jobs", "contacts"
+  add_foreign_key "jobs", "positions"
+  add_foreign_key "jobs", "user_zhaos"
   add_foreign_key "labor_intentions", "labors"
   add_foreign_key "labors", "user_songs"
 end
