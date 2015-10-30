@@ -1,0 +1,7 @@
+<% if @contact.errors.any? %>
+  $('#common_modal #common-errors').remove();
+  $('#common_modal .modal-body').prepend("<%= j( render partial: 'shared/common_errors', locals: { model: @contact } ) %>");
+<% else %>
+  $('#common_modal').modal('hide');
+  $("#contact-<%=@contact.id%>").replaceWith("<%= j(render @contact) %>")
+<% end %>

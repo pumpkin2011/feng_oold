@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :zhao do
     root 'welcome#index'
     resources :companies
+    resources :contacts
   end
 
   # 运营方

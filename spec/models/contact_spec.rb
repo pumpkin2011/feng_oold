@@ -23,5 +23,34 @@
 require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:user_zhao) }
+
+  it "标准数据" do
+    expect(build(:contact)).to be_valid
+  end
+
+  describe "姓名" do
+    it { should validate_presence_of(:name) }
+    it { should validate_length_of(:name).is_at_least(2) }
+    it { should validate_length_of(:name).is_at_most(10) }
+  end
+
+  describe "手机号码" do
+    it { should validate_presence_of(:mobile) }
+    it do
+      should allow_value(
+        # 无修饰符、空格修饰、横线修饰、国家代码
+        '18621248234', '186 2124 8234', '186-2124-8234',
+        '+86 18621248234', '+086 18621248234', '+0086 18621248234',
+      ).for(:mobile)
+    end
+    # it do
+    #   should_not allow_value('123', 'abc', '186212482345').for(:mobile)
+    # end
+    pending '错误格式测试....'
+  end
+
+  describe "性别" do
+    it { should enumerize(:gender).in(:male, :female) }
+  end
 end

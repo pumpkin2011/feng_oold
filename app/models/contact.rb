@@ -21,5 +21,22 @@
 #
 
 class Contact < ActiveRecord::Base
+  acts_as_paranoid
+  extend Enumerize
   belongs_to :user_zhao
+
+  enumerize :gender, in: [:male, :female], default: :male
+
+  validates_presence_of :name, :mobile, :gender
+  validates :name, length: { in: 2..10 }, allow_blank: true
+  validates :mobile, format: { with: /\A1[3|4|5|7|8][0-9]{9}\Z/ }, allow_blank: true
+
+  before_validation :filter_mobile
+
+  default_scope { order('updated_at desc') }
+
+  private
+    def filter_mobile
+      self.mobile.gsub!(/(^\+0{0,2}86)|\s|-|/, '') unless self.mobile.nil?
+    end
 end

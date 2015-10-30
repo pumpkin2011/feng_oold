@@ -14,9 +14,10 @@ user = UserZhao.create(
   confirmed_at: Time.now
 )
 
+
 # 公司
 (sequence_min..sequence_max).each do |company_seq|
-  user.companies.build(
+  user.companies.create(
     name: "淘帮忙_#{company_seq}",
     province: "310000",
     city: "310100",
@@ -24,5 +25,13 @@ user = UserZhao.create(
     address: "海外高桥保税区富特北路18号联安大厦5楼",
     introduction: "淘帮忙项目起源地, 希望我们能离梦想更进一步"
   )
-  user.save
+end
+
+# 联系人
+(sequence_min..sequence_max).each do |contact_seq|
+  user.contacts.create(
+    name: "联系人#{contact_seq}号",
+    mobile: "1309261890#{contact_seq}",
+    gender: "male"
+  )
 end

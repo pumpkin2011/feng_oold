@@ -1,0 +1,17 @@
+tr id="contact-#{contact.id}"
+  td = contact.name
+  td = contact.gender_text
+  td = render_common_mobile contact.mobile
+  td
+    .btn-group
+      = link_to t('.show'), [:zhao, contact], remote: true, class: 'btn btn-primary'
+
+      button.btn.btn-primary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+        span.caret
+        span.sr-only Toggle Dropdown
+      ul.dropdown-menu
+        li
+          = link_to t('.Edit'), edit_zhao_contact_path(contact), remote: true
+        li
+          = link_to t('.Destroy'), [:zhao, contact], remote: true,
+            data: {:confirm => 'Are you sure?'}, :method => :delete
