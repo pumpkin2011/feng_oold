@@ -21,4 +21,12 @@
 #
 
 class LaborIntention < ActiveRecord::Base
+	extend Enumerize
+  belongs_to :labor
+  has_and_belongs_to_many :positions, join_table: 'intentions_positions',
+                                      foreign_key: 'intention_id'
+  # TODO: 公司等级 取名待定
+	# level1:2000元以下 level2:2000-3000元 ，以此类推 3000-4000，4000-5000，5000-6000，6000-7000，7000-8000，8000以上。
+	enumerize :salary, in: [:level1, :level2, :level3, :level4,
+													:level5, :level6, :level7, :level8]
 end

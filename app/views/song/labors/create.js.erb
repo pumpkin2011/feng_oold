@@ -1,0 +1,7 @@
+<% if @labor.errors.any? %>
+  $('#common_modal #common-errors').remove();
+  $('#common_modal .modal-body').prepend("<%= j( render partial: 'shared/common_errors', locals: { model: @labor } ) %>");
+<% else %>
+  $('#common_modal').modal('hide');
+  $('tbody tr:first').after("<%= j(render @labor) %>");
+<% end %>

@@ -36,7 +36,14 @@
 
 FactoryGirl.define do
   factory :labor do
-    
+    association :user_song
+    name "求职者01"
+    mobile "18621248234"
+    idcard "340621198711255616"
+    channel :web
+    province "310000"
+    city  "310100"
+    district "310115"
   end
 
 end

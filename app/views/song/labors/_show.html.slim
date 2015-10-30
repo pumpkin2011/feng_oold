@@ -1,0 +1,39 @@
+.row
+  .col-md-2 姓名:
+  .col-md-10 
+    = @labor.name
+br
+.row
+  .col-md-2 身份证:
+  .col-md-10 
+    = @labor.idcard
+br
+.row
+  .col-md-2 手机:
+  .col-md-10 
+    = @labor.mobile
+br
+.row
+  .col-md-2 现居住地:
+  .col-md-10 
+    = render_common_china_city_address @labor
+br
+.row
+  .col-md-2 期望工作地:
+  .col-md-10 
+    = render_common_china_city_address @labor.intention
+br
+.row
+  .col-md-2 期望薪资:
+  .col-md-10 
+    = @labor.intention.salary
+br
+.row
+  .col-md-2 期望职位:
+  .col-md-10 
+  - @labor.intention.positions.each do |position|
+    = position.name
+.row
+  .col-md-2
+    = link_to "返回", song_labors_path, class: 'btn btn-primary',
+      data: { dismiss: 'modal' }    
