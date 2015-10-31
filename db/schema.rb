@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030091025) do
+ActiveRecord::Schema.define(version: 20151031072051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cash_ins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.decimal  "amount",       precision: 10, scale: 2, null: false
+    t.string   "serial_inner",                          null: false
+    t.string   "serial_outer"
+    t.string   "channel",                               null: false
+    t.string   "state",                                 null: false
+    t.string   "note"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "cash_ins", ["channel"], name: "index_cash_ins_on_channel", using: :btree
+  add_index "cash_ins", ["serial_inner"], name: "index_cash_ins_on_serial_inner", unique: true, using: :btree
+  add_index "cash_ins", ["serial_outer"], name: "index_cash_ins_on_serial_outer", unique: true, using: :btree
+  add_index "cash_ins", ["state"], name: "index_cash_ins_on_state", using: :btree
+  add_index "cash_ins", ["user_type", "user_id"], name: "index_cash_ins_on_user_type_and_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.integer  "user_zhao_id"
