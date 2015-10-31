@@ -49,5 +49,3 @@ end
     position: Position.first
   )
 end
-
-end
