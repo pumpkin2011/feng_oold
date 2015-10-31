@@ -47,8 +47,7 @@ class Job < ActiveRecord::Base
   belongs_to :position
 
   validates_presence_of :name, :gender, :age_min, :age_max, :salary_min, :salary_max,
-                        :salary_basic, :state, :user_zhao, :position
-                        # , :company, :contact
+                        :salary_basic, :state, :user_zhao, :position, :company, :contact
   validates :name, length: { in: 5..50}, allow_blank: true
   validates :age_min, numericality: { only_integer: true, greater_than_or_equal_to: 16}, allow_blank: true
   validates :age_max, numericality: { only_integer: true, less_than_or_equal_to: 60}, allow_blank: true

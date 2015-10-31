@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    = link_to t('.new_job'), new_zhao_job_path, remote: true, class: 'btn btn-primary'
+    = link_to t('.new_job'), new_zhao_job_path, class: 'btn btn-primary'
 
 .row
   .col-xs-12
@@ -8,17 +8,7 @@
       .box-header
         h3.box-title = Contact.model_name.human
         .box-tools
-          ul.pagination.pagination-sm.no-margin.pull-right
-            li
-              a href="#"  «
-            li
-              a href="#"  1
-            li
-              a href="#"  2
-            li
-              a href="#"  3
-            li
-              a href="#"  »
+          = paginate @jobs
 
       .box-body.table-responsive.no-padding
         table.table.table-hover
@@ -30,6 +20,8 @@
               th = t('.age')
               th = t('.salary')
               th = Job.human_attribute_name(:salary_basic)
+              th = Job.human_attribute_name(:company_id)
+              th = Job.human_attribute_name(:contact_id)
               th = Job.human_attribute_name(:state)
               th = t('.options')
 

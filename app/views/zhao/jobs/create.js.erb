@@ -1,7 +1,0 @@
-<% if @job.errors.any? %>
-  $('#common_modal .alert-danger').remove();
-  $('#common_modal .modal-body').prepend("<%= j( render partial: 'shared/errors', locals: { model: @job } ) %>");
-<% else %>
-  $('#common_modal').modal('hide');
-  $('tbody tr:first').after("<%= j(render @job) %>");
-<% end %>
