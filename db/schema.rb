@@ -234,14 +234,15 @@ ActiveRecord::Schema.define(version: 20151031072051) do
   add_index "user_admins", ["unlock_token"], name: "index_user_admins_on_unlock_token", unique: true, using: :btree
 
   create_table "user_songs", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "mobile",                 default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "name",                                                          null: false
+    t.string   "mobile",                                          default: "",  null: false
+    t.string   "email",                                           default: "",  null: false
+    t.string   "encrypted_password",                              default: "",  null: false
+    t.decimal  "balance",                precision: 10, scale: 2, default: 0.0, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                   default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -250,11 +251,11 @@ ActiveRecord::Schema.define(version: 20151031072051) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",                                 default: 0,   null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   add_index "user_songs", ["confirmation_token"], name: "index_user_songs_on_confirmation_token", unique: true, using: :btree
@@ -266,14 +267,15 @@ ActiveRecord::Schema.define(version: 20151031072051) do
   add_index "user_songs", ["unlock_token"], name: "index_user_songs_on_unlock_token", unique: true, using: :btree
 
   create_table "user_zhaos", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "mobile",                 default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "name",                                                          null: false
+    t.string   "mobile",                                          default: "",  null: false
+    t.string   "email",                                           default: "",  null: false
+    t.string   "encrypted_password",                              default: "",  null: false
+    t.decimal  "balance",                precision: 10, scale: 2, default: 0.0, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                   default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -282,11 +284,11 @@ ActiveRecord::Schema.define(version: 20151031072051) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",                                 default: 0,   null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   add_index "user_zhaos", ["confirmation_token"], name: "index_user_zhaos_on_confirmation_token", unique: true, using: :btree
