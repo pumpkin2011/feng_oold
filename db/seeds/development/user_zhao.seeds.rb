@@ -35,3 +35,19 @@ end
     gender: "male"
   )
 end
+
+# 职位
+(sequence_min..sequence_max).each do |job_seq|
+  user.jobs.create(
+    name: "岗位标题#{job_seq}",
+    gender: "unknown",
+    age_min: "18",
+    age_max: "30",
+    salary_min: "2000",
+    salary_max: "10000",
+    salary_basic: "5000",
+    position: Position.first
+  )
+end
+
+end

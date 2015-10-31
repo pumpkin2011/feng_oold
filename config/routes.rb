@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     root 'welcome#index'
     resources :companies
     resources :contacts
+    resources :jobs
   end
 
   # 运营方

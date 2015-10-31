@@ -1,0 +1,41 @@
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:name)
+  .col-xs-9
+    span = @job.name
+
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:position)
+  .col-xs-9
+    span = @job.position.try(:name)
+
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:gender)
+  .col-xs-9
+    span = @job.gender_text
+
+.row
+  .col-xs-3
+    span = t('.age')
+  .col-xs-9
+    span
+      = @job.age_min
+      |-
+      = @job.age_max
+
+.row
+  .col-xs-3
+    span = t('.salary')
+  .col-xs-9
+    span
+      = @job.salary_min
+      |-
+      = @job.salary_max
+
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:salary_basic)
+  .col-xs-9
+    span = @job.salary_basic

@@ -26,7 +26,7 @@
 
 FactoryGirl.define do
   factory :company do
-    user_zhao_id '1'
+    association :user_zhao
     name "淘帮忙"
     province "310000"
     city  "310100"
