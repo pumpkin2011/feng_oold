@@ -39,6 +39,7 @@
 
 class UserSong < ActiveRecord::Base
 	has_many :labors
+	has_many :cash_ins, as:  :user
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

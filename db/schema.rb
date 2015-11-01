@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031072051) do
+ActiveRecord::Schema.define(version: 20151101030945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 20151031072051) do
     t.string   "note"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.datetime "deleted_at"
   end
 
   add_index "cash_ins", ["channel"], name: "index_cash_ins_on_channel", using: :btree
+  add_index "cash_ins", ["deleted_at"], name: "index_cash_ins_on_deleted_at", using: :btree
   add_index "cash_ins", ["serial_inner"], name: "index_cash_ins_on_serial_inner", unique: true, using: :btree
   add_index "cash_ins", ["serial_outer"], name: "index_cash_ins_on_serial_outer", unique: true, using: :btree
   add_index "cash_ins", ["state"], name: "index_cash_ins_on_state", using: :btree

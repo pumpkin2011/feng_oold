@@ -1,0 +1,65 @@
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:user)
+    '：
+  .col-xs-10
+    = @cash_in.user.try(:name)
+
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:user_type)
+    '：
+  .col-xs-10
+    = @cash_in.user_type
+
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:note)
+    '：
+  .col-xs-10
+    = @cash_in.note
+
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:serial_inner)
+    '：
+  .col-xs-10
+    = @cash_in.serial_inner
+
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:channel)
+    '：
+  .col-xs-10
+    = @cash_in.channel
+
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:created_at)
+    '：
+  .col-xs-10
+    = @cash_in.created_at
+
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:state)
+    '：
+  .col-xs-10
+    = @cash_in.state
+
+.row
+  .col-xs-2
+    = CashIn.human_attribute_name(:serial_outer)
+    '：
+  .col-xs-10
+    - if @cash_in.serial_outer
+      = @cash_in.serial_outer
+    - else
+        = form_tag set_serial_outer_os_cash_in_path(@cash_in), remote: true
+          = text_field_tag :serial_outer
+          = submit_tag "save"
+
+.row
+  .col-xs-2
+    = link_to t('.back'), os_cash_ins_path, class: 'btn btn-primary',
+      data: { dismiss: 'modal' }

@@ -1,0 +1,24 @@
+- if @cash_in.errors.any?
+  = render partial: 'shared/common_errors', locals: { model: @cash_in }
+
+= form_for [:os, @cash_in] do |f|
+  .form-group
+    = f.label :username
+    = f.text_field :username, value: @cash_in.user.try(:name), class: 'form-control'
+
+  .form-group
+    = f.label :user_type
+    = f.text_field :user_type, class: 'form-control'
+
+  .form-group
+    = f.label :amount
+    = f.text_field :amount, class: 'form-control'
+
+  .form-group
+    = f.label :note
+    = f.text_area :note, class: 'form-control'
+
+  .form-group
+    = f.submit class: 'btn btn-primary'
+    = link_to t('.back'), os_cash_ins_path, class: 'btn btn-danger',
+      data: { dismiss: 'modal' }

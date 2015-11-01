@@ -40,6 +40,8 @@
 require 'rails_helper'
 
 RSpec.describe UserSong, type: :model do
+  it { should have_many(:cash_ins) }
+
   it "标准数据" do
     expect(build(:user_song)).to be_valid
   end

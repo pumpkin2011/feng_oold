@@ -13,10 +13,12 @@
 #  note         :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  deleted_at   :datetime
 #
 # Indexes
 #
 #  index_cash_ins_on_channel                (channel)
+#  index_cash_ins_on_deleted_at             (deleted_at)
 #  index_cash_ins_on_serial_inner           (serial_inner) UNIQUE
 #  index_cash_ins_on_serial_outer           (serial_outer) UNIQUE
 #  index_cash_ins_on_state                  (state)
@@ -25,13 +27,13 @@
 
 FactoryGirl.define do
   factory :cash_in do
-    user nil
-amount "9.99"
-serial_inner "MyString"
-serial_outer "MyString"
-channel "MyString"
-state "MyString"
-note ""
+    association :user, factory: :user_zhao
+    amount "100000"
+    serial_inner "00001111"
+    serial_outer "11110000"
+    channel "offline"
+    state "pending"
+    note "This is a test note"
   end
 
 end

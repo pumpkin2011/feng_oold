@@ -42,6 +42,7 @@ require 'rails_helper'
 RSpec.describe UserZhao, type: :model do
   it { should have_many(:contacts) }
   it { should have_many(:jobs) }
+  it { should have_many(:cash_ins) }
 
   it "标准数据" do
     expect(build(:user_zhao)).to be_valid

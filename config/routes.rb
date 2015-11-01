@@ -15,6 +15,14 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
+  namespace :os do
+    resources :cash_ins do
+      member do
+        post :set_serial_outer
+      end
+    end
+  end
+
   # 运营方
   namespace :admin do
     root 'welcome#index'
