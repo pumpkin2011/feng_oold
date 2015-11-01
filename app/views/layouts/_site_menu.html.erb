@@ -1,0 +1,47 @@
+<div class="site-menu">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 category-menu">
+        <input type="checkbox" id="c-menu"></input>
+        <div class="class-menu">
+          <i class="fa fa-bars"></i>
+          <label for="c-menu">全部课程</label>
+        </div>
+        <div class="category-list">
+          <% Position.where(parent_id: nil).each do |position| %>
+            <div class="category-item">
+              <h2>
+                <a class="first" href="/explore-jrck01_01/" target="_blank" title=""><%= position.name %></a>
+                <span class="glyphicon glyphicon-menu-right fr"></span>
+              </h2>
+              <ul>
+              </ul>
+              <div class="second">
+                <dl>
+                  <dd>
+                    <% position.children.each do |child| %>
+                      <a href="/explore-jrck01_01/ck1001_02/kjcyzg100101_03/" target="_blank" title=""><%= child.name %></a>
+                    <% end %>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-9 nav-tab">
+        <ul>
+          <li><a href="http://www.1zhaozhao.com" title="" target="_blank">求职app </a></li>
+          <li><a href="javascript:;" title="">就创业课程 </a></li>
+          <li><a href="javascript:;" title="">职业测评 </a></li>
+          <li><a href="javascript:;" title="">关注就创业 </a></li>
+          <li><a href="javascript:;" title="">大学生文库 </a></li>
+          <li><a href="javascript:;" title="">笔面试题库 </a></li>
+          <li><a href="javascript:;" title="">在线笔试 </a></li>
+          <li><a href="javascript:;" title="">在线面试 </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

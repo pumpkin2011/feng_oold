@@ -1,0 +1,68 @@
+.site-header {
+  height: 60px;
+  border: none;
+  padding: 0 20px;
+  background-color: #fff;
+  color: #999;
+  .navbar-header {
+    height: 60px;
+    line-height: 50px;
+    padding: 5px 10px;
+    color: #fff;
+    transition: all .3s ease;
+  }
+  .header-title {
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    font-size: 22px;
+    color: #616161;
+  }
+  .navbar-user {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 20px;
+
+    .user-nav {
+      float: right;
+
+      li {
+        float: left;
+        height: 60px;
+
+        a {
+          padding: 20px 15px;
+          color: #000;
+          transition: all .3s ease;
+        }
+      }
+    }
+
+    .navbar-form {
+      margin: 15px 10px;
+
+      .form-control {
+        height: 30px;
+        width: 100px;
+        line-height: 28px;
+        border-radius: 20px;
+        padding: 0 12px;
+      }
+      .form-group {
+        position: relative;
+
+        .search-icon {
+          position: absolute;
+          right: 12px;
+          top: 8px;
+          border: none;
+          background: none;
+        }
+      }
+    }
+  }
+
+
+
+}

@@ -1,2 +1,114 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= render 'layouts/hero_unit' %>
+<section class="recommend-job">
+  <div class="container">
+    <div class="recommend-job-header">
+      <div class="text-line">
+        <h3><span>推荐岗位</span></h3>
+    </div>
+    <div class="row home-page-job-slides">
+      <% Job.first(5).each do |job| %>
+        <div class="col-md-3 col-sm-6">
+
+          <div class="job-item">
+            <div class="job-top">
+              <%= image_tag "user_jenny.jpg", class: "job-avatar" %>
+              <h3 class="title">
+                <%= link_to job.name, recommend_job_path(job), class: "link-light" %>
+              </h3>
+              <div class="position">
+                基本工资：<%= job.salary_basic %>
+              </div>
+            </div>
+            <div class="job-bottom">
+              <div class="about">
+                年龄：<%= job.age_min %> ~ <%= job.age_max %>
+              </div>
+              <div class="metas">
+                <a class="btn btn-primary btn-high btn-sm follow-btn" href="javascript:;" data-url="/user/3/follow" data-loggedin="0">报名</a>
+                <a class="btn btn-default btn-high btn-sm unfollow-btn" href="javascript:;" data-url="/user/3/unfollow" style="display:none;">已关注</a>
+                <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal" data-url="/message/create/3">关注</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<section class="course-list-section">
+  <div class="container">
+    <div class="index-course-header">
+      <div class="header-line" id="course-filter">
+        <h2><a href="/explore-jrck01_01/" title="资格证书">合作企业</a></h2>
+        <ul>
+          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=19&amp;orderBy=recommendedSeq&amp;type=tab" data-num="19"><a href="javascript:;" title="">推荐</a></li>
+          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=20&amp;orderBy=latest&amp;type=tab" data-num="19"><a href="javascript:;" title="财会">财会</a></li>
+          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=45&amp;orderBy=latest&amp;type=tab" data-num="19"><a href="javascript:;" title="金融">金融</a></li>
+          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=54&amp;orderBy=latest&amp;type=tab" data-num="19"><a href="javascript:;" title="其他">其他</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="course-list" id="course-list-19">
+      <div class="row">
+        <% Company.first(5).each do |company| %>
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="course-item">
+              <div class="course-img">
+                <a href="/course/561" target="_blank" title=" 国家助理营销师（三级）—— 专业技能">
+                  <%= image_tag "qu.jpg", class: "img-responsive transform" %>
+                </a>
+              </div>
+              <div class="course-body">
+                <div class="title" style="margin-top: 0px;">
+                  <h2> <a class="link-dark" href="/course/561" target="_blank" title=" 国家助理营销师（三级）—— 专业技能"> <%= company.name %>  </a> </h2>
+                  <p><span class="glyphicon glyphicon-user"></span>1</p>
+                  <p>
+                    <span class="course-price-widget">
+                      <span class="price"> 免费</span>
+                    </span>
+                    <a class=" " href="/teacher/578515" target="_blank" title="肖忠野"> 肖忠野 </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="information">
+  <div class="container">
+    <div class="information-header">
+      <div class="text-line">
+        <h3><span>热门资讯</span></h3>
+        <div class="line"></div>
+        <a href="/article" class="more"><i class="es-icon es-icon-morehoriz"></i></a>
+      </div>
+    </div>
+    <div class="row">
+      <% 4.times do |i| %>
+        <div class="col-md-6">
+          <div class="top">
+            <div class="date">
+              <span>30 </span>
+              10 M
+            </div>
+            <h2>
+              <i>名企优岗</i>
+              <a href="/article-1268.html">万圣节南瓜灯与小鬼魂更配哦</a>
+            </h2>
+          </div>
+          <div class="bottom">
+            <div class="img">
+              <%= image_tag "hot.jpg"%>
+            </div>
+            <p> 　　大王派我来巡山喽~　　今天阎王不在家，小鬼来当家，　　出去扮人要糖果好嘛好开心。　　今天阎王不在家，群魔来乱舞，　　南瓜、萝卜齐...</p>
+            <a href="/article-1268.html">查看全部&gt;</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

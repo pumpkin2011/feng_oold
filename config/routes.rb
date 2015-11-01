@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   root 'welcome#index'
+  resources :recommend_jobs, only: [:show]
   # 送人方
   namespace :song do
     root 'welcome#index'

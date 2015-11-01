@@ -1,0 +1,19 @@
+.hero-unit {
+  background-image: url("hero_bg.jpg");
+  .container {
+    padding-left: 0;
+  }
+  .site-slides {
+    padding: 0;
+  }
+
+  .site-slides {
+    .carousel-inner {
+      .item {
+        img {
+          height: 360px;
+        }
+      }
+    }
+  }
+}

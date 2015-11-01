@@ -16,4 +16,12 @@
  *= require ionicons/css/ionicons
  *= require admin-lte/dist/css/AdminLTE
  *= require admin-lte/dist/css/skins/skin-blue
+ *= require slick-carousel/slick/slick
+ *= require slick-carousel/slick/slick-theme
+ *= require site-header
+ *= require site-menu
+ *= require hero-unit
+ *= require site-footer
+ *= require home
+ *= require job-page
  */

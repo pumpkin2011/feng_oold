@@ -5,6 +5,7 @@
     "font-awesome": "latest",
     "ionicons": "latest",
     "html5shiv": "latest",
-    "respond": "latest"
+    "respond": "latest",
+    "slick-carousel": "latest"
   }
 }
