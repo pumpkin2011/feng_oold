@@ -11,6 +11,8 @@ tr id="job-#{job.id}"
     |-
     = job.salary_max
   td = job.salary_basic
+  td = job.company.try(:name)
+  td = job.contact.try(:name)
   td = job.state
   td
     .btn-group
@@ -20,7 +22,7 @@ tr id="job-#{job.id}"
         span.sr-only Toggle Dropdown
       ul.dropdown-menu
         li
-          = link_to t('.Edit'), edit_zhao_job_path(job), remote: true
+          = link_to t('.Edit'), edit_zhao_job_path(job)
         li
           = link_to t('.Destroy'), [:zhao, job],
             data: {:confirm => 'Are you sure?'}, :method => :delete

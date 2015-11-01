@@ -14,7 +14,6 @@ user = UserZhao.create(
   confirmed_at: Time.now
 )
 
-
 # 公司
 (sequence_min..sequence_max).each do |company_seq|
   user.companies.create(
@@ -46,6 +45,8 @@ end
     salary_min: "2000",
     salary_max: "10000",
     salary_basic: "5000",
-    position: Position.first
+    position: Position.take,
+    company: Company.take,
+    contact: Contact.take
   )
 end

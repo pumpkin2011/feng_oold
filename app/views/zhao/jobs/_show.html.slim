@@ -39,3 +39,15 @@
     span = Job.human_attribute_name(:salary_basic)
   .col-xs-9
     span = @job.salary_basic
+
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:company_id)
+  .col-xs-9
+    span = @job.company.try(:name)
+
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:contact_id)
+  .col-xs-9
+    span = @job.contact.try(:name)

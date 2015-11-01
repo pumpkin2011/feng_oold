@@ -43,6 +43,6 @@ class Zhao::JobsController < ApplicationController
 
     def job_params
       params.require(:job).permit(:name, :gender, :age_min, :age_max, :salary_min, :salary_max,
-                                  :salary_basic, :position_id)
+                                  :salary_basic, :position_id, :company_id, :contact_id)
     end
 end
