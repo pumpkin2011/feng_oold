@@ -1,7 +1,7 @@
 - if @cash_in.errors.any?
   = render partial: 'shared/common_errors', locals: { model: @cash_in }
 
-= form_for [:os, @cash_in] do |f|
+= form_for [:os, @cash_in], remote: true do |f|
   .form-group
     = f.label :username
     = f.text_field :username, value: @cash_in.user.try(:name), class: 'form-control'

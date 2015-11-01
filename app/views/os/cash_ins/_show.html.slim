@@ -51,7 +51,7 @@
   .col-xs-2
     = CashIn.human_attribute_name(:serial_outer)
     '：
-  .col-xs-10
+  .col-xs-10.serial_outer
     - if @cash_in.serial_outer
       = @cash_in.serial_outer
     - else
