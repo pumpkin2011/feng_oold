@@ -4,7 +4,17 @@ zh-CN:
       contact: "联系人"
       company: "代招企业"
       job: "招聘信息"
+      labor: "工友"
     attributes:
+      common: &common
+        name: 姓名
+        mobile: 手机
+        idcard: 身份证
+        gender: 性别
+        birthday: 出生年月
+        province: 省份
+        city: 城市
+        district: 区/县
       contact:
         name: "姓名"
         gender: "性别"
@@ -25,3 +35,17 @@ zh-CN:
         company_id: "企业信息"
         contact_id: "联系人信息"
         state: "状态"
+      labor:
+        <<: *common
+        age: 性别/年龄
+        channel: 来源
+        state:
+          yidengji: 已登记
+          yibaoming: 已报名
+          yimianshi: 已面试
+          yiruzhi: 已入职
+          yilizhi: 已离职
+          weiruzhi: 未入职
+      labor/intention:
+        salary: 期望薪资
+        position_ids: 期望岗位
