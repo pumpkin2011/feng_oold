@@ -17,9 +17,7 @@ Rails.application.routes.draw do
 
   namespace :os do
     resources :cash_ins do
-      member do
-        post :set_serial_outer
-      end
+      get :reject, on: :member
     end
   end
 

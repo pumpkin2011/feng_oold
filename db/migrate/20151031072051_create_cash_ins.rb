@@ -11,7 +11,7 @@ class CreateCashIns < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-q
+
     add_index :cash_ins, :serial_inner, unique: true
     add_index :cash_ins, :serial_outer, unique: true
     add_index :cash_ins, :channel

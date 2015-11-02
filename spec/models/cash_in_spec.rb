@@ -43,7 +43,7 @@ RSpec.describe CashIn, type: :model do
   end
 
   describe "内部流水号和渠道" do
-    it { should validate_presence_of(:serial_outer) }
+    # it { should validate_presence_of(:serial_outer) }
     it { should validate_presence_of(:channel) }
   end
 

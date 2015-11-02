@@ -49,4 +49,16 @@ end
     company: Company.take,
     contact: Contact.take
   )
+
+  # 充值
+  (sequence_min..sequence_max).each do |seq|
+    c = CashIn.create(
+      username: UserZhao.first.name,
+      user_type: 'UserZhao',
+      amount: 10000,
+      serial_inner: "00001111#{seq}",
+      channel: 'offline',
+      note: 'a note for test'
+    )
+  end
 end

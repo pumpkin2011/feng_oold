@@ -1,10 +1,10 @@
 class Os::CashInsController < ApplicationController
-  before_action :set_cash_in, only: [:show, :edit, :update, :destroy, :set_serial_outer, :confirm, :reject]
+  before_action :set_cash_in, only: [:show, :edit, :update, :destroy, :set_serial_outer, :reject]
 
   respond_to :html, :js
 
   def index
-    @cash_ins = CashIn.all.page params[:page]
+    @cash_ins = CashIn.filter_by_state(params[:type]).page params[:page]
     respond_with(@cash_ins)
   end
 
@@ -38,10 +38,8 @@ class Os::CashInsController < ApplicationController
     respond_with(@cash_in, location: os_cash_ins_path)
   end
 
-  def set_serial_outer
-    @cash_in.serial_outer = params[:serial_outer]
-    @cash_in.save
-    respond_with(@cash_in, location: os_cash_ins_path)
+  def reject
+    @cash_in.reject! if @cash_in.pending?
   end
 
   private

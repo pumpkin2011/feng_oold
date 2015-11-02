@@ -35,11 +35,14 @@ class CashIn < ActiveRecord::Base
   before_validation :set_user, unless: "username.nil?"
   validates_presence_of :user, message: '不存在', unless: "username.nil?"
   validates_presence_of :amount, :serial_inner, :channel, :state
-  validates_presence_of :serial_outer, if: "false"
+  validates_presence_of :serial_outer, unless: "serial_outer.nil?"
   validates :amount, numericality: true, allow_blank: true
   validates_uniqueness_of :serial_inner, :serial_outer, allow_blank: true
 
   default_scope { order(updated_at: 'desc') }
+  after_update :state_confirm
+
+  scope :filter_by_state, -> (state) { CashIn.includes(:user).where(state.blank?? nil : "state=?", state) }
 
   aasm column: :state do
     state :pending, :initial => true
@@ -48,6 +51,9 @@ class CashIn < ActiveRecord::Base
 
     event :confirm do
       transitions from: :pending, to: :confirmed
+      after do
+        self.user.increment!(:balance, self.amount)
+      end
     end
 
     event :reject do
@@ -61,10 +67,13 @@ class CashIn < ActiveRecord::Base
 
   private
     def set_user
-      if user_type == 'user_zhao'
-        self.user = UserZhao.where(name: self.username).take
-      else
-        self.user = UserSong.where(name: self.username).take
+      user = user_type.constantize
+      self.user = user.where(name: self.username).take
+    end
+
+    def state_confirm
+      if self.serial_outer && self.pending?
+        self.confirm!
       end
     end
 end

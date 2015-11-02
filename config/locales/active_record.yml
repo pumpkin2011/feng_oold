@@ -5,6 +5,7 @@ zh-CN:
       company: "代招企业"
       job: "招聘信息"
       labor: "工友"
+      cash_in: "充值信息"
     attributes:
       common: &common
         name: 姓名
@@ -49,3 +50,11 @@ zh-CN:
       labor/intention:
         salary: 期望薪资
         position_ids: 期望岗位
+      cash_in:
+        amount: "金额"
+        serial_inner: "平台流水号"
+        serial_outer: "银行流水号"
+        note: "备注"
+        state: "状态"
+        channel: "渠道"
+        created_at: "创建于"

@@ -29,6 +29,19 @@ puts "密码: password"
     channel: "web"
   )
   usersong.save
+
+  # 充值
+  (sequence_min..sequence_max).each do |seq|
+    c = CashIn.create(
+      username: UserSong.first.name,
+      user_type: 'UserSong',
+      amount: 20000,
+      serial_inner: "0000111#{seq}",
+      channel: 'offline',
+      note: 'a note for test'
+    )
+  end
+
 end
 puts "-"*50
 puts "创建测试工友..."

@@ -4,6 +4,20 @@
 
 .row
   .col-xs-12
+    = link_to os_cash_ins_path, class: "btn btn-default" do
+      span.glyphicon.glyphicon-align-justify aria-hidden="true"
+        = t('.all')
+    = link_to os_cash_ins_path(type: 'pending'), class: "btn btn-default" do
+      span.glyphicon.glyphicon-time aria-hidden="true"
+        = t('.pending')
+    = link_to os_cash_ins_path(type: 'confirmed'), class: "btn btn-default" do
+      span.glyphicon.glyphicon-ok aria-hidden="true"
+        = t('.confirmed')
+    = link_to os_cash_ins_path(type: 'rejected'), class: "btn btn-default" do
+      span.glyphicon.glyphicon-remove aria-hidden="true"
+        = t('.rejected')
+.row
+  .col-xs-12
     .box
       .box-header
         h3.box-title = CashIn.model_name.human
@@ -13,10 +27,12 @@
         table.table.table-hover
           tbody
             tr
-              th = CashIn.human_attribute_name(:name)
+              th = UserZhao.human_attribute_name(:name)
               th = CashIn.human_attribute_name(:amount)
-              th = CashIn.human_attribute_name(:state)
+              th = CashIn.human_attribute_name(:serial_outer)
+              th = CashIn.human_attribute_name(:serial_inner)
               th = CashIn.human_attribute_name(:note)
+              th = CashIn.human_attribute_name(:state)
               th = t('.options')
 
             = render @cash_ins

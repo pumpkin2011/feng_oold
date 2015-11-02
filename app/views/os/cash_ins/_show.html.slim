@@ -1,63 +1,58 @@
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:user)
     '：
-  .col-xs-10
+  .col-xs-9
     = @cash_in.user.try(:name)
 
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:user_type)
     '：
-  .col-xs-10
+  .col-xs-9
     = @cash_in.user_type
 
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:note)
     '：
-  .col-xs-10
+  .col-xs-9
     = @cash_in.note
 
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:serial_inner)
     '：
-  .col-xs-10
+  .col-xs-9
     = @cash_in.serial_inner
 
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:channel)
     '：
-  .col-xs-10
+  .col-xs-9
     = @cash_in.channel
 
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:created_at)
     '：
-  .col-xs-10
+  .col-xs-9
     = @cash_in.created_at
 
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:state)
     '：
-  .col-xs-10
+  .col-xs-9
     = @cash_in.state
 
 .row
-  .col-xs-2
+  .col-xs-3
     = CashIn.human_attribute_name(:serial_outer)
     '：
-  .col-xs-10.serial_outer
-    - if @cash_in.serial_outer
-      = @cash_in.serial_outer
-    - else
-        = form_tag set_serial_outer_os_cash_in_path(@cash_in), remote: true
-          = text_field_tag :serial_outer
-          = submit_tag "save"
+  .col-xs-9.serial_outer
+    = @cash_in.serial_outer || "待输入"
 
 .row
   .col-xs-2
