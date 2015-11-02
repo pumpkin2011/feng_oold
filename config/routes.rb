@@ -1,7 +1,5 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
-  get 'debits/show'
-
   root 'welcome#index'
   # 送人方
   namespace :song do

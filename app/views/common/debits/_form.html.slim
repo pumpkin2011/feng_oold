@@ -1,4 +1,4 @@
-= form_for @debit, url: debit_path do |f|
+= form_for @debit, url: debit_path, remote: true do |f|
   h3 银行卡信息
   .form_group
     = f.label :bank_id
@@ -19,4 +19,4 @@
   br
   .form_group
     = f.submit "确定", class: "btn btn-primary"
-    = link_to "返回", debits_show_path, class: "btn btn-danger"
+    = link_to "返回", profile_path, class: "btn btn-danger"
