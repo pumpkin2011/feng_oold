@@ -1,10 +1,10 @@
 class Common::DebitsController < ApplicationController
 
-  respond_to :html
-
+  respond_to :html, :js
 
   def show
-
+    @debit = current_user.debit.find(params[:id])
+    respond_with(@debit)
   end
 
   def new
@@ -14,15 +14,13 @@ class Common::DebitsController < ApplicationController
 
 
   def create
-    @debit = Debit.new(debit_params)
+    @debit = current_user.build_debit(debit_params)
     @debit.save
     respond_with(@debit)
   end
 
-
   private
-
     def debit_params
-      params[:debit]
+      params.require(:debit).permit(:bank_id, :name, :account, :deposit)
     end
 end

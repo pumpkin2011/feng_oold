@@ -1,9 +1,22 @@
-= form_for @debit do |f|
-  - if @debit.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@debit.errors.count, "error")} prohibited this debit from being saved:"
-      ul
-        - @debit.errors.full_messages.each do |message|
-          li = message
+= form_for @debit, url: debit_path do |f|
+  h3 银行卡信息
+  .form_group
+    = f.label :bank_id
+    = f.select :bank_id, Bank.all.collect{|f| [f.name, f.id]},{include_blank: false},class: 'form-control'
 
-  .actions = f.submit
+  .form_group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  .form_group
+    = f.label :account
+    = f.text_field :account, class: 'form-control'
+
+  .form_group
+    = f.label :deposit
+    = f.text_field :deposit, class: 'form-control'
+
+  br
+  .form_group
+    = f.submit "确定", class: "btn btn-primary"
+    = link_to "返回", debits_show_path, class: "btn btn-danger"
