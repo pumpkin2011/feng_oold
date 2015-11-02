@@ -35,7 +35,7 @@
     <!-- Menu Footer-->
     <li class="user-footer">
       <div class="pull-left">
-        <a href="#" class="btn btn-default btn-flat">Profile</a>
+        <%= link_to '个人资料', profile_path, class: 'btn btn-default btn-flat' %>
       </div>
       <div class="pull-right">
         <%= render_user_sign_out %>
