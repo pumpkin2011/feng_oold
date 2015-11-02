@@ -23,4 +23,9 @@
 class Debit < ActiveRecord::Base
   belongs_to :user, polymorphic: true
   belongs_to :bank
+
+  validates_presence_of :name, :account, :deposit
+  validates :name, length: { in: 2..10 }, allow_blank: true
+  validates :account, length: { in: 16..20 }, allow_blank: true
+  validates :deposit, length: { in: 2..20 }, allow_blank: true
 end

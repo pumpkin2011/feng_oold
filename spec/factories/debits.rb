@@ -23,10 +23,9 @@
 FactoryGirl.define do
   factory :debit do
     user nil
-bank nil
-name "MyString"
-account "MyString"
-deposit "MyString"
+		association :bank
+		name "借记卡1号"
+		account "12341234345698227"
+		deposit "武汉东湖经济开发区招商银行东湖支行"
   end
-
 end
