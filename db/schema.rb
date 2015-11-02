@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102045548) do
+ActiveRecord::Schema.define(version: 20151102050645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(version: 20151102045548) do
   add_index "contacts", ["mobile"], name: "index_contacts_on_mobile", using: :btree
   add_index "contacts", ["name"], name: "index_contacts_on_name", using: :btree
   add_index "contacts", ["user_zhao_id"], name: "index_contacts_on_user_zhao_id", using: :btree
+
+  create_table "debits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.integer  "bank_id"
+    t.string   "name",       null: false
+    t.string   "account",    null: false
+    t.string   "deposit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "debits", ["account"], name: "index_debits_on_account", using: :btree
+  add_index "debits", ["bank_id"], name: "index_debits_on_bank_id", using: :btree
+  add_index "debits", ["name"], name: "index_debits_on_name", using: :btree
+  add_index "debits", ["user_type", "user_id"], name: "index_debits_on_user_type_and_user_id", using: :btree
 
   create_table "industries", force: :cascade do |t|
     t.string   "name",       null: false
@@ -288,6 +304,7 @@ ActiveRecord::Schema.define(version: 20151102045548) do
 
   add_foreign_key "companies", "user_zhaos"
   add_foreign_key "contacts", "user_zhaos"
+  add_foreign_key "debits", "banks"
   add_foreign_key "jobs", "companies"
   add_foreign_key "jobs", "contacts"
   add_foreign_key "jobs", "positions"

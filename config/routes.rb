@@ -1,5 +1,7 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  get 'debits/show'
+
   root 'welcome#index'
   # 送人方
   namespace :song do
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
   # 公共
   scope module: 'common' do
     resource :profile
+    resource :debit
   end
   mount ChinaCity::Engine => '/china_city'
   devise_for :user_zhaos
