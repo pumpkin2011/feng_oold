@@ -20,6 +20,11 @@ Rails.application.routes.draw do
     root 'welcome#index'
     mount Sidekiq::Web => '/sidekiq'
   end
+
+  # 公共
+  scope module: 'common' do
+    resource :profile
+  end
   mount ChinaCity::Engine => '/china_city'
   devise_for :user_zhaos
   devise_for :user_songs
