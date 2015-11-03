@@ -3,7 +3,7 @@ class Common::DebitsController < ApplicationController
   respond_to :html, :js
 
   def show
-    @debit = current_user_song.debit
+    @debit = current_enterprise.debit
     respond_with(@debit)
   end
 
@@ -14,7 +14,7 @@ class Common::DebitsController < ApplicationController
 
 
   def create
-    @debit = current_user_song.build_debit(debit_params)
+    @debit = current_enterprise.build_debit(debit_params)
     @debit.save
     respond_with(@debit)
   end
