@@ -9,11 +9,8 @@ module CashInHelper
     end
   end
 
-  def render_user_type(cash_in, expected_type)
-    if cash_in.new_record?
-      "active" if expected_type == "UserZhao"
-    else
-      cash_in.user_type == expected_type ? "active" : nil
-    end
+  def render_active_by_state(param=nil)
+    'active' if params[:state] == param
   end
+
 end

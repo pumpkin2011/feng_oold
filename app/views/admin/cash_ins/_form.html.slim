@@ -1,0 +1,31 @@
+- if @cash_in.errors.any?
+  = render partial: 'shared/common_errors', locals: { model: @cash_in }
+
+.form-group
+  .row
+    .col-md-12
+      .tab-content
+        .tab-pane.active
+          = form_for [:admin, @cash_in], remote: true do |f|
+            .form-group
+              = f.label :username
+              = f.text_field :enterprise_name, value: @cash_in.enterprise.try(:name), class: 'form-control', disabled: !@cash_in.new_record?
+
+            .form-group
+              = f.label :amount
+              = f.text_field :amount, class: 'form-control', disabled: !@cash_in.new_record?
+
+            .form-group
+              = f.label :note
+              = f.text_area :note, class: 'form-control', disabled: !@cash_in.pending?
+
+            - unless @cash_in.rejected? or @cash_in.new_record?
+              .form-group
+                = f.label :serial_outer
+                = f.text_field :serial_outer, class: 'form-control', disabled: @cash_in.serial_outer
+
+            .form-group
+              - if @cash_in.pending?
+                = f.submit class: 'btn btn-primary'
+                = link_to_if @cash_in.new_record?, t('.back'), admin_cash_ins_path, class: 'btn btn-danger', data: { dismiss: 'modal' } do
+                  = link_to t('.reject'), reject_admin_cash_in_path(@cash_in), method: 'patch', remote: true, class: "btn btn-danger"

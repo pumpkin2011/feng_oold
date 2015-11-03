@@ -2,31 +2,31 @@
 #
 # Table name: companies
 #
-#  id           :integer          not null, primary key
-#  user_zhao_id :integer
-#  name         :string           not null
-#  province     :string           not null
-#  city         :string           not null
-#  district     :string           not null
-#  address      :string           not null
-#  introduction :text             not null
-#  deleted_at   :datetime
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id            :integer          not null, primary key
+#  enterprise_id :integer
+#  name          :string           not null
+#  province      :string           not null
+#  city          :string           not null
+#  district      :string           not null
+#  address       :string           not null
+#  introduction  :text             not null
+#  deleted_at    :datetime
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 # Indexes
 #
-#  index_companies_on_city          (city)
-#  index_companies_on_deleted_at    (deleted_at)
-#  index_companies_on_district      (district)
-#  index_companies_on_name          (name)
-#  index_companies_on_province      (province)
-#  index_companies_on_user_zhao_id  (user_zhao_id)
+#  index_companies_on_city           (city)
+#  index_companies_on_deleted_at     (deleted_at)
+#  index_companies_on_district       (district)
+#  index_companies_on_enterprise_id  (enterprise_id)
+#  index_companies_on_name           (name)
+#  index_companies_on_province       (province)
 #
 
 FactoryGirl.define do
   factory :company do
-    association :user_zhao
+    association :enterprise
     name "淘帮忙"
     province "310000"
     city  "310100"

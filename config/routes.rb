@@ -15,16 +15,13 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
-  namespace :os do
-    resources :cash_ins do
-      get :reject, on: :member
-    end
-  end
-
   # 运营方
   namespace :admin do
     root 'welcome#index'
     mount Sidekiq::Web => '/sidekiq'
+    resources :cash_ins do
+      patch :reject, on: :member
+    end
   end
 
   # 公共
@@ -32,7 +29,6 @@ Rails.application.routes.draw do
     resource :profile
   end
   mount ChinaCity::Engine => '/china_city'
-  devise_for :user_zhaos
-  devise_for :user_songs
-  devise_for :user_admins
+  devise_for :admins
+  devise_for :enterprises
 end

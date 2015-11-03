@@ -1,12 +1,13 @@
 # == Schema Information
 #
-# Table name: user_admins
+# Table name: enterprises
 #
 #  id                     :integer          not null, primary key
 #  name                   :string           not null
 #  mobile                 :string           default(""), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -27,21 +28,26 @@
 #
 # Indexes
 #
-#  index_user_admins_on_account               (mobile,email) UNIQUE
-#  index_user_admins_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_user_admins_on_email                 (email)
-#  index_user_admins_on_mobile                (mobile)
-#  index_user_admins_on_name                  (name) UNIQUE
-#  index_user_admins_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_user_admins_on_unlock_token          (unlock_token) UNIQUE
+#  index_enterprises_on_account               (mobile,email) UNIQUE
+#  index_enterprises_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_enterprises_on_email                 (email)
+#  index_enterprises_on_mobile                (mobile)
+#  index_enterprises_on_name                  (name) UNIQUE
+#  index_enterprises_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_enterprises_on_unlock_token          (unlock_token) UNIQUE
 #
 
 require 'rails_helper'
 
-RSpec.describe UserAdmin, type: :model do
+RSpec.describe Enterprise, type: :model do
   it "标准数据" do
-    expect(build(:user_admin)).to be_valid
+    expect(build(:enterprise)).to be_valid
   end
+
+  it { should have_many(:contacts) }
+  it { should have_many(:labors) }
+  it { should have_many(:companies) }
+  it { should have_many(:jobs) }
 
   describe "用户名" do
     it { should have_db_column(:name).of_type(:string) }
@@ -57,4 +63,5 @@ RSpec.describe UserAdmin, type: :model do
     it { should have_db_column(:email).of_type(:string) }
     it { should have_db_index(:email) }
   end
+
 end

@@ -1,7 +1,7 @@
 class CreateLabors < ActiveRecord::Migration
   def change
     create_table :labors do |t|
-      t.references :user_song, index: true, foreign_key: true
+      t.references :enterprise, index: true, foreign_key: true
       t.string :name, null: false
       t.string :mobile, null: false
       t.string :idcard, null: false

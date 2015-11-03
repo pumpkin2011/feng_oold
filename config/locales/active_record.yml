@@ -51,8 +51,7 @@ zh-CN:
         salary: 期望薪资
         position_ids: 期望岗位
       cash_in:
-        user: 用户
-        username: 用户名
+        enterprise_name: 用户名
         amount: "金额"
         serial_inner: "平台流水号"
         serial_outer: "银行流水号"

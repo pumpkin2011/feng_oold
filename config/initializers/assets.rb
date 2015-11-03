@@ -12,5 +12,4 @@ Rails.application.config.assets.precompile += %w(
   html5shiv/dist/html5shiv.min.js
   respond/dest/respond.min.js
   china_city/jquery.china_city.js
-  cash_in.js
 )

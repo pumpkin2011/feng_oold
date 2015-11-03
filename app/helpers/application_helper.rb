@@ -3,24 +3,20 @@ module ApplicationHelper
   # 用户名显示
   def render_user_name
     case params[:controller]
-    when /^song/
-      current_user_song.name
-    when /^zhao/
-      current_user_zhao.name
+    when /^song|^zhao/
+      current_enterprise.name
     when /^admin/
-      current_user_admin.name
+      current_enterprise.name
     end
   end
 
   # 退出连接
   def render_user_sign_out
     case params[:controller]
-    when /^song/
-      link_to "退出", destroy_user_song_session_path, method: :delete, class: 'btn btn-default btn-flat'
-    when /^zhao/
-      link_to "退出", destroy_user_zhao_session_path, method: :delete, class: 'btn btn-default btn-flat'
+    when /^song|^zhao/
+      link_to "退出", destroy_enterprise_session_path, method: :delete, class: 'btn btn-default btn-flat'
     when /^admin/
-      link_to "退出", destroy_user_admin_session_path, method: :delete, class: 'btn btn-default btn-flat'
+      link_to "退出", destroy_admin_session_path, method: :delete, class: 'btn btn-default btn-flat'
     end
   end
 

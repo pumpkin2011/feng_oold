@@ -6,7 +6,7 @@ puts "创建招聘方测试帐号......."
 puts "用户名: zhao@91tbm.com"
 puts "密码: password"
 
-user = UserZhao.create(
+enterprise = Enterprise.create(
   name: "招聘方",
   email: "zhao@91tbm.com",
   mobile: "18621248234",
@@ -16,7 +16,7 @@ user = UserZhao.create(
 
 # 公司
 (sequence_min..sequence_max).each do |company_seq|
-  user.companies.create(
+  enterprise.companies.create(
     name: "淘帮忙_#{company_seq}",
     province: "310000",
     city: "310100",
@@ -28,7 +28,7 @@ end
 
 # 联系人
 (sequence_min..sequence_max).each do |contact_seq|
-  user.contacts.create(
+  enterprise.contacts.create(
     name: "联系人#{contact_seq}号",
     mobile: "1309261890#{contact_seq}",
     gender: "male"
@@ -37,7 +37,7 @@ end
 
 # 职位
 (sequence_min..sequence_max).each do |job_seq|
-  user.jobs.create(
+  enterprise.jobs.create(
     name: "岗位标题#{job_seq}",
     gender: "unknown",
     age_min: "18",
@@ -53,8 +53,7 @@ end
   # 充值
   (sequence_min..sequence_max).each do |seq|
     c = CashIn.create(
-      username: UserZhao.first.name,
-      user_type: 'UserZhao',
+      enterprise_name: Enterprise.first.name,
       amount: 10000,
       serial_inner: "00001111#{seq}",
       channel: 'offline',

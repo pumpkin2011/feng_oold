@@ -1,7 +1,7 @@
 class CreateCashIns < ActiveRecord::Migration
   def change
     create_table :cash_ins do |t|
-      t.references :user, index: true, polymorphic: true
+      t.references :enterprise, index: true
       t.decimal :amount, precision: 10, scale: 2, null: false
       t.string :serial_inner, null: false
       t.string :serial_outer

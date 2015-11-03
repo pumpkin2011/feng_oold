@@ -1,5 +1,5 @@
 tr id="cash_in-#{cash_in.id}"
-  td = cash_in.user.try(:name) + "(#{cash_in.user_type})"
+  td = cash_in.enterprise.try(:name)
   td = cash_in.amount
   td = cash_in.serial_outer
   td = cash_in.serial_inner
@@ -8,14 +8,14 @@ tr id="cash_in-#{cash_in.id}"
     span.glyphicon aria-hidden="true" class="#{render_cash_in_icon_with_state(cash_in)}"
   td
     .btn-group
-      = link_to t('.show'), [:os, cash_in], class: 'btn btn-primary', remote: true
+      = link_to t('.show'), [:admin, cash_in], class: 'btn btn-primary', remote: true
       button.btn.btn-primary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
         span.caret
         span.sr-only Toggle Dropdown
       ul.dropdown-menu
         li
-          = link_to t('.Edit'), edit_os_cash_in_path(cash_in), remote: true
+          = link_to t('.Edit'), edit_admin_cash_in_path(cash_in), remote: true
         - if cash_in.pending?
           li
-            = link_to t('.Destroy'), [:os, cash_in],
+            = link_to t('.Destroy'), [:admin, cash_in],
               data: {:confirm => 'Are you sure?'}, :method => :delete

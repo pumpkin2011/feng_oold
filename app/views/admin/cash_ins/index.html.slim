@@ -1,0 +1,51 @@
+.row
+  .col-xs-2
+    .box.box-solid
+      .box-body.no-padding style=("display: block;")
+        = link_to t('.new_cash_in'), new_admin_cash_in_path, remote: true, class: 'btn btn-primary form-control'
+
+    .box.box-solid
+      .box-header.with-border
+        h3.box-title
+          = t('.filter_state')
+        .box-tools
+          button.btn.btn-box-tool data-widget="collapse" type="button"
+            i.fa.fa-minus
+      .box-body.no-padding style=("display: block;")
+        ul.nav.nav-pills.nav-stacked
+          li.cash-in-sidebar class=render_active_by_state
+            = link_to admin_cash_ins_path do
+              span.glyphicon.glyphicon-align-justify.text-blue aria-hidden="true"
+              = t('.all')
+          li.cash-in-sidebar class=render_active_by_state('pending')
+            = link_to admin_cash_ins_path(state: 'pending') do
+              span.glyphicon.glyphicon-time.text-yellow aria-hidden="true"
+              = t('.pending')
+          li.cash-in-sidebar class=render_active_by_state('confirmed')
+            = link_to admin_cash_ins_path(state: 'confirmed') do
+              span.glyphicon.glyphicon-ok.text-green aria-hidden="true"
+              = t('.confirmed')
+          li.cash-in-sidebar class=render_active_by_state('rejected')
+            = link_to admin_cash_ins_path(state: 'rejected') do
+              span.glyphicon.glyphicon-remove.text-red aria-hidden="true"
+              = t('.rejected')
+
+  .col-xs-10
+    .box
+      .box-header
+        h3.box-title = CashIn.model_name.human
+        .box-tools
+          = paginate @cash_ins
+      .box-body.table-responsive.no-padding
+        table.table.table-hover
+          tbody
+            tr
+              th = Enterprise.human_attribute_name(:name)
+              th = CashIn.human_attribute_name(:amount)
+              th = CashIn.human_attribute_name(:serial_outer)
+              th = CashIn.human_attribute_name(:serial_inner)
+              th = CashIn.human_attribute_name(:note)
+              th = CashIn.human_attribute_name(:state)
+              th = t('.options')
+
+            = render @cash_ins

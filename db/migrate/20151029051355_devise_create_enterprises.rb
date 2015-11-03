@@ -1,6 +1,6 @@
-class DeviseCreateUserZhaos < ActiveRecord::Migration
+class DeviseCreateEnterprises < ActiveRecord::Migration
   def change
-    create_table(:user_zhaos) do |t|
+    create_table(:enterprises) do |t|
       ## Database authenticatable
       t.string :name,               null: false
       t.string :mobile,             null: false, default: ""
@@ -37,12 +37,12 @@ class DeviseCreateUserZhaos < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :user_zhaos, :name,                 unique: true
-    add_index :user_zhaos, :mobile
-    add_index :user_zhaos, :email
-    add_index :user_zhaos, [:mobile, :email],     unique: true, name: 'index_user_zhaos_on_account'
-    add_index :user_zhaos, :reset_password_token, unique: true
-    add_index :user_zhaos, :confirmation_token,   unique: true
-    add_index :user_zhaos, :unlock_token,         unique: true
+    add_index :enterprises, :name,                 unique: true
+    add_index :enterprises, :mobile
+    add_index :enterprises, :email
+    add_index :enterprises, [:mobile, :email],     unique: true, name: 'index_enterprises_on_account'
+    add_index :enterprises, :reset_password_token, unique: true
+    add_index :enterprises, :confirmation_token,   unique: true
+    add_index :enterprises, :unlock_token,         unique: true
   end
 end
