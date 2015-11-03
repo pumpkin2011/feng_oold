@@ -1,0 +1,22 @@
+<header class="site-header navbar ">
+  <div class="navbar-header">
+    <%= image_tag "site-logo.png" %></h1>
+  </div>
+  <div class="header-title">
+    就创业优选好课
+  </div>
+  <nav class="collapse navbar-collapse">
+    <div class="navbar-user">
+      <ul class="nav user-nav">
+        <li class="hidden-xs"><a href="/login?goto=%2F">登录</a></li>
+        <li class="hidden-xs"><a href="/register?goto=%2F">注册</a></li>
+      </ul>
+      <form class="navbar-form navbar-right hidden-xs hidden-sm" action="/search" method="get">
+        <div class="form-group">
+          <input class="form-control js-search" name="q" placeholder="搜索">
+          <i class="fa fa-search search-icon"></i>
+        </div>
+      </form>
+    </div>
+  </nav>
+</header>
