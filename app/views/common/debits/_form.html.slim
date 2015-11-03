@@ -1,0 +1,22 @@
+= form_for @debit, url: debit_path, remote: true do |f|
+  h3 银行卡信息
+  .form_group
+    = f.label :bank_id
+    = f.select :bank_id, Bank.all.collect{|f| [f.name, f.id]},{include_blank: false},class: 'form-control'
+
+  .form_group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  .form_group
+    = f.label :account
+    = f.text_field :account, class: 'form-control'
+
+  .form_group
+    = f.label :deposit
+    = f.text_field :deposit, class: 'form-control'
+
+  br
+  .form_group
+    = f.submit "确定", class: "btn btn-primary"
+    = link_to "返回", profile_path, class: "btn btn-danger"

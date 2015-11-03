@@ -31,8 +31,8 @@ br
 .row
   .col-md-2 期望职位:
   .col-md-10 
-  - @labor.intention.positions.each do |position|
-    = position.name
+    - @labor.intention.positions.each do |position|
+      = position.name
 .row
   .col-md-2
     = link_to "返回", song_labors_path, class: 'btn btn-primary',
