@@ -8,7 +8,7 @@
         .tab-pane.active
           = form_for [:admin, @cash_in], remote: true do |f|
             .form-group
-              = f.label :username
+              = f.label :enterprise_name
               = f.text_field :enterprise_name, value: @cash_in.enterprise.try(:name), class: 'form-control', disabled: !@cash_in.new_record?
 
             .form-group

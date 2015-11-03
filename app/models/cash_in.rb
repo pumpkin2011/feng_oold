@@ -48,9 +48,9 @@ class CashIn < ActiveRecord::Base
 
     event :confirm do
       transitions from: :pending, to: :confirmed
-      # after do
-      #   self.enterprise.increment!(:balance, self.amount)
-      # end
+      after do
+        self.enterprise.increment!(:balance, self.amount)
+      end
     end
 
     event :reject do
