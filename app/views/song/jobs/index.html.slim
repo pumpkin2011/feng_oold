@@ -1,0 +1,24 @@
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title = Job.model_name.human
+        .box-tools
+          = paginate @jobs
+
+      .box-body.table-responsive.no-padding
+        table.table.table-hover
+          tbody
+            tr
+              th = Job.human_attribute_name(:name)
+              th = Job.human_attribute_name(:position)
+              th = Job.human_attribute_name(:gender)
+              th = t('.age')
+              th = t('.salary')
+              th = Job.human_attribute_name(:salary_basic)
+              th = Job.human_attribute_name(:company_id)
+              th = Job.human_attribute_name(:contact_id)
+              th = Job.human_attribute_name(:state)
+              th = t('.options')
+
+            = render @jobs

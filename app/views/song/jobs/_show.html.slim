@@ -1,0 +1,57 @@
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:name)
+  .col-xs-9
+    span = @job.name
+br
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:position)
+  .col-xs-9
+    span = @job.position.try(:name)
+br
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:gender)
+  .col-xs-9
+    span = @job.gender_text
+br
+.row
+  .col-xs-3
+    span = t('.age')
+  .col-xs-9
+    span
+      = @job.age_min
+      |-
+      = @job.age_max
+br
+.row
+  .col-xs-3
+    span = t('.salary')
+  .col-xs-9
+    span
+      = @job.salary_min
+      |-
+      = @job.salary_max
+br
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:salary_basic)
+  .col-xs-9
+    span = @job.salary_basic
+br
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:company_id)
+  .col-xs-9
+    span = @job.company.try(:name)
+br
+.row
+  .col-xs-3
+    span = Job.human_attribute_name(:contact_id)
+  .col-xs-9
+    span = @job.contact.try(:name)
+br
+.row
+  .col-xs-3
+    = link_to "返回", song_jobs_path, class: 'btn btn-primary', data: { dismiss: 'modal' }  
