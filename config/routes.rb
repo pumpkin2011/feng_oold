@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :song do
     root 'welcome#index'
     resources :labors
+    resources :jobs, only: [:index ,:show]
   end
 
   # 招聘方
