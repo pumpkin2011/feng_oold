@@ -4,7 +4,7 @@ class Song::LaborsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @labors = current_user_song.labors.all.page params[:page]
+    @labors = current_enterprise.labors.all.page params[:page]
     respond_with(@labors)
   end
 
@@ -21,7 +21,7 @@ class Song::LaborsController < ApplicationController
   end
 
   def create
-    @labor = current_user_song.labors.build(labor_params)
+    @labor = current_enterprise.labors.build(labor_params)
     @labor.channel = 'web'
     @labor.save
     respond_with(@labor, location: song_labors_path)
@@ -39,7 +39,7 @@ class Song::LaborsController < ApplicationController
 
   private
     def set_labor
-      @labor = current_user_song.labors.find(params[:id])
+      @labor = current_enterprise.labors.find(params[:id])
     end
 
     def labor_params

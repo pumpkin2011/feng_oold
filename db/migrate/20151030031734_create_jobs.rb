@@ -1,7 +1,7 @@
 class CreateJobs < ActiveRecord::Migration
   def change
     create_table :jobs do |t|
-      t.references :user_zhao, index: true, foreign_key: true
+      t.references :enterprise, index: true, foreign_key: true
       t.references :company, index: true, foreign_key: true
       t.references :contact, index: true, foreign_key: true
       t.references :position, index: true, foreign_key: true

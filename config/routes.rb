@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     resource :debit
   end
   mount ChinaCity::Engine => '/china_city'
-  devise_for :user_zhaos
-  devise_for :user_songs
-  devise_for :user_admins
+  devise_for :admins
+  devise_for :enterprises
 end

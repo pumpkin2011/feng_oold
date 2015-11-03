@@ -2,7 +2,7 @@
   $('#common_modal #common-errors').remove();
   $('#common_modal .modal-body').prepend("<%= j( render partial: 'shared/common_errors', locals: { model: @contact } ) %>");
 <% else %>
-  $('.contact_select').html("<%= j(select_tag 'job[contact_id]', options_from_collection_for_select(current_user_zhao.contacts, :id, :name), { include_blank: true, class: 'form-control' })%>")
+  $('.contact_select').html("<%= j(select_tag 'job[contact_id]', options_from_collection_for_select(current_enterprise.contacts, :id, :name), { include_blank: true, class: 'form-control' })%>")
   $('#common_modal').modal('hide');
   $('tbody tr:first').after("<%= j(render @contact) %>");
 <% end %>

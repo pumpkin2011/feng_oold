@@ -57,7 +57,7 @@
         = f.label :company_id
     .row
       .col-xs-4.company_select
-        = f.select :company_id, options_for_select(current_user_zhao.companies.collect { |c| [c.name, c.id] }, @job.company_id),
+        = f.select :company_id, options_for_select(current_enterprise.companies.collect { |c| [c.name, c.id] }, @job.company_id),
           { include_blank: true }, class: 'form-control'
       .col-xs-2
         = link_to t('.new_company'), new_zhao_company_path, remote: true, class: 'btn btn-primary form-control'
@@ -68,7 +68,7 @@
         = f.label :contact_id
     .row
       .col-xs-4.contact_select
-        = f.select :contact_id, options_for_select(current_user_zhao.contacts.collect {|c| [c.name, c.id]}, @job.contact_id),
+        = f.select :contact_id, options_for_select(current_enterprise.contacts.collect {|c| [c.name, c.id]}, @job.contact_id),
           { include_blank: true }, class: 'form-control'
       .col-xs-2
         = link_to t('.new_contact'), new_zhao_contact_path, remote: true, class: 'btn btn-primary form-control'
