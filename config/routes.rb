@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # 公共
   scope module: 'common' do
     resource :profile
+    resources :cash_outs, expect: [:show]
   end
   mount ChinaCity::Engine => '/china_city'
   devise_for :admins

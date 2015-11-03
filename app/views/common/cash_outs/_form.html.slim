@@ -1,0 +1,12 @@
+- if @cash_out.errors.any?
+  = render partial: 'shared/common_errors', locals: { model: @cash_out }
+
+= form_for @cash_out do |f|
+  .form-group
+    = f.label :amount
+    = f.text_field :amount, class: 'form-control'
+
+  .form-group
+    = f.submit class: 'btn btn-primary'
+    = link_to t('.back'), cash_outs_path, class: 'btn btn-danger',
+      data: { dismiss: 'modal' }

@@ -24,4 +24,4 @@
         .box-body
           a.btn.btn-primary.btn-block href="#" 绑定银行卡
           a.btn.btn-primary.btn-block href="#" 充值
-          a.btn.btn-primary.btn-block href="#" 提现
+          = link_to '提现',new_cash_out_path,remote: true,class: 'btn btn-primary btn-block'

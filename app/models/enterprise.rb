@@ -46,4 +46,5 @@ class Enterprise < ActiveRecord::Base
   has_many :labors
   has_many :companies
   has_many :jobs
+  has_many :cash_outs
 end

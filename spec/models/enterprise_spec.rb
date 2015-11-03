@@ -47,6 +47,7 @@ RSpec.describe Enterprise, type: :model do
   it { should have_many(:labors) }
   it { should have_many(:companies) }
   it { should have_many(:jobs) }
+  it { should have_many(:cash_outs) }
 
   describe "用户名" do
     it { should have_db_column(:name).of_type(:string) }

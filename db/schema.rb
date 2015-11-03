@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030091025) do
+ActiveRecord::Schema.define(version: 20151102061921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,20 @@ ActiveRecord::Schema.define(version: 20151030091025) do
   add_index "admins", ["name"], name: "index_admins_on_name", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true, using: :btree
+
+  create_table "cash_outs", force: :cascade do |t|
+    t.integer  "enterprise_id"
+    t.decimal  "amount",        precision: 10, scale: 2, null: false
+    t.string   "serial_inner",                           null: false
+    t.string   "serial_outer"
+    t.string   "state",                                  null: false
+    t.string   "note"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "cash_outs", ["enterprise_id"], name: "index_cash_outs_on_enterprise_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.integer  "enterprise_id"

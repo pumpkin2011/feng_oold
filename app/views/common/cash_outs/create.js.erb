@@ -1,0 +1,7 @@
+<% if @cash_out.errors.any? %>
+  $('#common_modal #common-errors').remove();
+  $('#common_modal .modal-body').prepend("<%= j( render partial: 'shared/common_errors', locals: { model: @cash_out } ) %>");
+<% else %>
+  $('#common_modal').modal('hide');
+  $('tbody tr:first').after("<%= j(render @cash_out) %>");
+<% end %>

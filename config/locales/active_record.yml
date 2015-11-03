@@ -5,6 +5,7 @@ zh-CN:
       company: "代招企业"
       job: "招聘信息"
       labor: "工友"
+      cash_out: "提现"
     attributes:
       common: &common
         name: 姓名
@@ -49,3 +50,10 @@ zh-CN:
       labor/intention:
         salary: 期望薪资
         position_ids: 期望岗位
+      cash_out:
+        <<: *common
+        amount: 提现金额
+        serial_inner: 提现编号
+        serial_outer: 银行流水号
+        state: 状态
+        note: 备注

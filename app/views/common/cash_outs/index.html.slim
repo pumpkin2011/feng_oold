@@ -1,0 +1,21 @@
+.row
+  .col-xs-12
+    = link_to t('.cash_out_company'), new_cash_out_path, remote: true, class: 'btn btn-primary'
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title = CashOut.model_name.human
+        .box-tools
+          = paginate @cash_outs
+      .box-body.table-responsive.no-padding
+        table.table.table-hover
+          tbody
+            tr
+              th = CashOut.human_attribute_name(:amount)
+              th = CashOut.human_attribute_name(:serial_inner)
+              th = CashOut.human_attribute_name(:serial_outer)
+              th = CashOut.human_attribute_name(:state)
+              th = CashOut.human_attribute_name(:note)
+              th = t ('.options')
+            = render @cash_outs
