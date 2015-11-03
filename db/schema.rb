@@ -17,14 +17,15 @@ ActiveRecord::Schema.define(version: 20151102061921) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "mobile",                 default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "name",                                                          null: false
+    t.string   "mobile",                                          default: "",  null: false
+    t.string   "email",                                           default: "",  null: false
+    t.string   "encrypted_password",                              default: "",  null: false
+    t.decimal  "balance",                precision: 10, scale: 2, default: 0.0, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                   default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -33,11 +34,11 @@ ActiveRecord::Schema.define(version: 20151102061921) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",                                 default: 0,   null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   add_index "admins", ["confirmation_token"], name: "index_admins_on_confirmation_token", unique: true, using: :btree
@@ -55,6 +56,26 @@ ActiveRecord::Schema.define(version: 20151102061921) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "cash_ins", force: :cascade do |t|
+    t.integer  "enterprise_id"
+    t.decimal  "amount",        precision: 10, scale: 2, null: false
+    t.string   "serial_inner",                           null: false
+    t.string   "serial_outer"
+    t.string   "channel",                                null: false
+    t.string   "state",                                  null: false
+    t.string   "note"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "cash_ins", ["channel"], name: "index_cash_ins_on_channel", using: :btree
+  add_index "cash_ins", ["deleted_at"], name: "index_cash_ins_on_deleted_at", using: :btree
+  add_index "cash_ins", ["enterprise_id"], name: "index_cash_ins_on_enterprise_id", using: :btree
+  add_index "cash_ins", ["serial_inner"], name: "index_cash_ins_on_serial_inner", unique: true, using: :btree
+  add_index "cash_ins", ["serial_outer"], name: "index_cash_ins_on_serial_outer", unique: true, using: :btree
+  add_index "cash_ins", ["state"], name: "index_cash_ins_on_state", using: :btree
 
   create_table "cash_outs", force: :cascade do |t|
     t.integer  "enterprise_id"
@@ -123,14 +144,15 @@ ActiveRecord::Schema.define(version: 20151102061921) do
   add_index "debits", ["user_type", "user_id"], name: "index_debits_on_user_type_and_user_id", using: :btree
 
   create_table "enterprises", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "mobile",                 default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "name",                                                          null: false
+    t.string   "mobile",                                          default: "",  null: false
+    t.string   "email",                                           default: "",  null: false
+    t.string   "encrypted_password",                              default: "",  null: false
+    t.decimal  "balance",                precision: 10, scale: 2, default: 0.0, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                   default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -139,11 +161,11 @@ ActiveRecord::Schema.define(version: 20151102061921) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",                                 default: 0,   null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   add_index "enterprises", ["confirmation_token"], name: "index_enterprises_on_confirmation_token", unique: true, using: :btree

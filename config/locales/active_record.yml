@@ -6,6 +6,7 @@ zh-CN:
       job: "招聘信息"
       labor: "工友"
       cash_out: "提现"
+      cash_in: "充值信息"
     attributes:
       common: &common
         name: 姓名
@@ -57,3 +58,12 @@ zh-CN:
         serial_outer: 银行流水号
         state: 状态
         note: 备注
+      cash_in:
+        enterprise_name: 用户名
+        amount: "金额"
+        serial_inner: "平台流水号"
+        serial_outer: "银行流水号"
+        note: "备注"
+        state: "状态"
+        channel: "渠道"
+        created_at: "创建于"

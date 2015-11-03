@@ -6,7 +6,7 @@ module ApplicationHelper
     when /^song|^zhao/
       current_enterprise.name
     when /^admin/
-      current_user_admin.name
+      current_enterprise.name
     end
   end
 

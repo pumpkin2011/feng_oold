@@ -1,0 +1,7 @@
+<% if @cash_in.errors.any? %>
+  $('#common_modal #common-errors').remove();
+  $('#common_modal .modal-body').prepend("<%= j( render partial: 'shared/common_errors', locals: { model: @cash_in } ) %>");
+<% else %>
+  $('#common_modal').modal('hide');
+  $("#cash_in-<%=@cash_in.id%>").replaceWith("<%= j(render @cash_in) %>")
+<% end %>

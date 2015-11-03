@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     root 'welcome#index'
     mount Sidekiq::Web => '/sidekiq'
     resources :labors
+    resources :cash_ins do
+      patch :reject, on: :member
+    end
   end
 
   # 公共

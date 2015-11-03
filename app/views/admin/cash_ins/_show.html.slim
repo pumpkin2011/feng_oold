@@ -1,0 +1,53 @@
+.row
+  .col-xs-3
+    = CashIn.human_attribute_name(:enterprise_name)
+    '：
+  .col-xs-9
+    = @cash_in.enterprise.try(:name)
+
+.row
+  .col-xs-3
+    = CashIn.human_attribute_name(:note)
+    '：
+  .col-xs-9
+    = @cash_in.note
+
+.row
+  .col-xs-3
+    = CashIn.human_attribute_name(:serial_inner)
+    '：
+  .col-xs-9
+    = @cash_in.serial_inner
+
+.row
+  .col-xs-3
+    = CashIn.human_attribute_name(:channel)
+    '：
+  .col-xs-9
+    = @cash_in.channel
+
+.row
+  .col-xs-3
+    = CashIn.human_attribute_name(:created_at)
+    '：
+  .col-xs-9
+    = @cash_in.created_at
+
+.row
+  .col-xs-3
+    = CashIn.human_attribute_name(:state)
+    '：
+  .col-xs-9
+    = @cash_in.state
+
+.row
+  .col-xs-3
+    = CashIn.human_attribute_name(:serial_outer)
+    '：
+  .col-xs-9.serial_outer
+    = @cash_in.serial_outer || t('.null')
+
+.row
+  .col-xs-2
+    = link_to t('.back'), admin_cash_ins_path, class: 'btn btn-primary',
+      data: { dismiss: 'modal' }

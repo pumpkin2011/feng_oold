@@ -6,6 +6,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration
       t.string :mobile,             null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.decimal :balance, precision: 10, scale: 2, null: false, default: 0.00
 
       ## Recoverable
       t.string   :reset_password_token
