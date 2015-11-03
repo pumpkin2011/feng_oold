@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'welcome#index'
     mount Sidekiq::Web => '/sidekiq'
+    resources :labors
   end
 
   # 公共

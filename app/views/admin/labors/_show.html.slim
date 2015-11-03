@@ -1,0 +1,51 @@
+.row
+  .col-md-2 
+    span = Labor.human_attribute_name(:name)
+  .col-md-10 
+    span = @labor.name
+br
+.row
+  .col-md-2 
+    span 性别/年龄
+  .col-md-10 
+    span = render_labor_gender_with_age @labor
+br
+.row
+  .col-md-2 
+    span = Labor.human_attribute_name(:mobile)
+  .col-md-10 
+    span = @labor.mobile
+br
+.row
+  .col-md-2 
+    span = Labor.human_attribute_name(:idcard)
+  .col-md-10 
+    span = @labor.idcard
+br
+.row
+  .col-md-2 
+    span = Labor.human_attribute_name(:channel)
+  .col-md-10 
+    span = @labor.channel_text
+br
+.row
+  .col-md-2 
+    span 工友状态
+  .col-md-10 
+    span = @labor.aasm.human_state
+br
+.row
+  .col-md-2 
+    span 登记时间
+  .col-md-10 
+    span = @labor.created_at
+br
+.row
+  .col-md-2 
+    span 所属公司
+  .col-md-10 
+    span 
+br    
+.row
+  .col-md-2
+    = link_to "返回", admin_labors_path, class: 'btn btn-primary', data: { dismiss: 'modal' }    

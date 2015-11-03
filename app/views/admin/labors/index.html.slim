@@ -1,0 +1,20 @@
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title = Labor.model_name.human
+        .box-tools
+          = paginate @labors
+      .box-body.table-responsive.no-padding
+        table.table.table-hover
+          tbody
+            tr
+              th = Labor.human_attribute_name(:name)
+              th = Labor.human_attribute_name(:age)
+              th = Labor.human_attribute_name(:mobile)
+              th = Labor.human_attribute_name(:channel)
+              th 工友状态
+              th 工友登记时间
+              th 所属公司
+              th 操作
+            = render @labors
