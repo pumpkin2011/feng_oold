@@ -1,0 +1,9 @@
+tr
+  td = link_to labor.name, admin_labor_path(labor),remote: true
+  td = render_labor_gender_with_age(labor)
+  td = render_common_mobile(labor.mobile)
+  td = labor.channel_text
+  td = labor.aasm.human_state
+  td = labor.created_at
+  td 
+  td = link_to t('.show'), admin_labor_path(labor),remote: true, class: 'btn btn-primary'
