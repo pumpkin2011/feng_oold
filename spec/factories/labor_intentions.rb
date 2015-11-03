@@ -23,11 +23,9 @@
 FactoryGirl.define do
   factory :labor_intention do
     association :labor
-    salary "5000"
+    salary 'level3'
     province "310000"
     city "310100"
     district "310115"
-    salary 'level3'
   end
-
 end

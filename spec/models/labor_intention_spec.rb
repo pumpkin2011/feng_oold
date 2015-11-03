@@ -23,5 +23,10 @@
 require 'rails_helper'
 
 RSpec.describe LaborIntention, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:labor) }
+  it{ should have_and_belong_to_many(:positions) }
+
+  it "标准数据" do
+    expect(build(:labor_intention)).to be_valid
+  end
 end

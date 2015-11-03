@@ -35,8 +35,8 @@ class Contact < ActiveRecord::Base
 
   default_scope { order('updated_at desc') }
 
-  private
-    def filter_mobile
-      self.mobile.gsub!(/(^\+0{0,2}86)|\s|-|/, '') unless self.mobile.nil?
-    end
+
+  def filter_mobile
+    self.mobile.gsub!(/(^\+0{0,2}86)|\s|-|/, '') unless self.mobile.nil?
+  end
 end

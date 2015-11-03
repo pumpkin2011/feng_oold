@@ -37,6 +37,11 @@ RSpec.describe Contact, type: :model do
 
   describe "手机号码" do
     it { should validate_presence_of(:mobile) }
+    it "过滤多余字符" do
+      contact = build(:contact, mobile: '186-2124-8234')
+      expect(contact.filter_mobile).to eq '18621248234'
+    end
+
     it do
       should allow_value(
         # 无修饰符、空格修饰、横线修饰、国家代码
