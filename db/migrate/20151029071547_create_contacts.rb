@@ -1,7 +1,7 @@
 class CreateContacts < ActiveRecord::Migration
   def change
     create_table :contacts do |t|
-      t.references :user_zhao, index: true, foreign_key: true
+      t.references :enterprise, index: true, foreign_key: true
       t.string :name, null: false
       t.string :mobile, null: false
       t.string :gender, null: false

@@ -4,7 +4,7 @@ class Zhao::ContactsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @contacts = current_user_zhao.contacts.page params[:page]
+    @contacts = current_enterprise.contacts.page params[:page]
     respond_with(@contacts)
   end
 
@@ -21,7 +21,7 @@ class Zhao::ContactsController < ApplicationController
   end
 
   def create
-    @contact = current_user_zhao.contacts.build(contact_params)
+    @contact = current_enterprise.contacts.build(contact_params)
     @contact.save
     respond_with(@contact, location: zhao_contacts_path)
   end
@@ -38,7 +38,7 @@ class Zhao::ContactsController < ApplicationController
 
   private
     def set_contact
-      @contact = current_user_zhao.contacts.find(params[:id])
+      @contact = current_enterprise.contacts.find(params[:id])
     end
 
     def contact_params

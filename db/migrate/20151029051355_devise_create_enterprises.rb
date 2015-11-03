@@ -1,6 +1,6 @@
-class DeviseCreateUserSongs < ActiveRecord::Migration
+class DeviseCreateEnterprises < ActiveRecord::Migration
   def change
-    create_table(:user_songs) do |t|
+    create_table(:enterprises) do |t|
       ## Database authenticatable
       t.string :name,               null: false
       t.string :mobile,             null: false, default: ""
@@ -36,12 +36,12 @@ class DeviseCreateUserSongs < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :user_songs, :name,                 unique: true
-    add_index :user_songs, :mobile
-    add_index :user_songs, :email
-    add_index :user_songs, [:mobile, :email],     unique: true, name: 'index_user_songs_on_account'
-    add_index :user_songs, :reset_password_token, unique: true
-    add_index :user_songs, :confirmation_token,   unique: true
-    add_index :user_songs, :unlock_token,         unique: true
+    add_index :enterprises, :name,                 unique: true
+    add_index :enterprises, :mobile
+    add_index :enterprises, :email
+    add_index :enterprises, [:mobile, :email],     unique: true, name: 'index_enterprises_on_account'
+    add_index :enterprises, :reset_password_token, unique: true
+    add_index :enterprises, :confirmation_token,   unique: true
+    add_index :enterprises, :unlock_token,         unique: true
   end
 end

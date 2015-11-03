@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: user_songs
+# Table name: admins
 #
 #  id                     :integer          not null, primary key
 #  name                   :string           not null
@@ -27,17 +27,16 @@
 #
 # Indexes
 #
-#  index_user_songs_on_account               (mobile,email) UNIQUE
-#  index_user_songs_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_user_songs_on_email                 (email)
-#  index_user_songs_on_mobile                (mobile)
-#  index_user_songs_on_name                  (name) UNIQUE
-#  index_user_songs_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_user_songs_on_unlock_token          (unlock_token) UNIQUE
+#  index_admins_on_account               (mobile,email) UNIQUE
+#  index_admins_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_admins_on_email                 (email)
+#  index_admins_on_mobile                (mobile)
+#  index_admins_on_name                  (name) UNIQUE
+#  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_admins_on_unlock_token          (unlock_token) UNIQUE
 #
 
-class UserSong < ActiveRecord::Base
-	has_many :labors
+class Admin < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
