@@ -4,7 +4,7 @@ class Zhao::JobsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @jobs = current_user_zhao.jobs.page params[:page]
+    @jobs = current_enterprise.jobs.page params[:page]
     respond_with(@jobs)
   end
 
@@ -21,7 +21,7 @@ class Zhao::JobsController < ApplicationController
   end
 
   def create
-    @job = current_user_zhao.jobs.build(job_params)
+    @job = current_enterprise.jobs.build(job_params)
     @job.save
     respond_with(@job, location: zhao_jobs_path)
   end
@@ -38,7 +38,7 @@ class Zhao::JobsController < ApplicationController
 
   private
     def set_job
-      @job = current_user_zhao.jobs.find(params[:id])
+      @job = current_enterprise.jobs.find(params[:id])
     end
 
     def job_params

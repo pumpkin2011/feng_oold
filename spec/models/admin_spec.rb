@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: user_zhaos
+# Table name: admins
 #
 #  id                     :integer          not null, primary key
 #  name                   :string           not null
@@ -27,22 +27,34 @@
 #
 # Indexes
 #
-#  index_user_zhaos_on_account               (mobile,email) UNIQUE
-#  index_user_zhaos_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_user_zhaos_on_email                 (email)
-#  index_user_zhaos_on_mobile                (mobile)
-#  index_user_zhaos_on_name                  (name) UNIQUE
-#  index_user_zhaos_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_user_zhaos_on_unlock_token          (unlock_token) UNIQUE
+#  index_admins_on_account               (mobile,email) UNIQUE
+#  index_admins_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_admins_on_email                 (email)
+#  index_admins_on_mobile                (mobile)
+#  index_admins_on_name                  (name) UNIQUE
+#  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_admins_on_unlock_token          (unlock_token) UNIQUE
 #
 
-class UserZhao < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable
-  has_many :companies
-  has_many :contacts
-  has_many :jobs
+require 'rails_helper'
+
+RSpec.describe Admin, type: :model do
+  it "标准数据" do
+    expect(build(:admin)).to be_valid
+  end
+
+  describe "用户名" do
+    it { should have_db_column(:name).of_type(:string) }
+    it { should have_db_index(:name).unique(true) }
+  end
+
+  describe "手机" do
+    it { should have_db_column(:mobile).of_type(:string) }
+    it { should have_db_index(:mobile) }
+  end
+
+  describe "邮箱" do
+    it { should have_db_column(:email).of_type(:string) }
+    it { should have_db_index(:email) }
+  end
 end

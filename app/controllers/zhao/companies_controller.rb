@@ -4,7 +4,7 @@ class Zhao::CompaniesController < ApplicationController
   respond_to :html, :js
 
   def index
-    @companies = current_user_zhao.companies.page params[:page]
+    @companies = current_enterprise.companies.page params[:page]
     respond_with(@companies)
   end
 
@@ -21,7 +21,7 @@ class Zhao::CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user_zhao.companies.new(company_params)
+    @company = current_enterprise.companies.new(company_params)
     @company.save
     respond_with(@company,location: zhao_companies_path)
   end
@@ -38,7 +38,7 @@ class Zhao::CompaniesController < ApplicationController
 
   private
     def set_zhao_company
-      @company = current_user_zhao.companies.find(params[:id])
+      @company = current_enterprise.companies.find(params[:id])
     end
 
     def company_params
