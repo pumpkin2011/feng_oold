@@ -19,8 +19,7 @@
  *= require slick-carousel/slick/slick
  *= require slick-carousel/slick/slick-theme
  *= require site-header
- *= require site-menu
- *= require hero-unit
+ *= require home-hero-slides
  *= require site-footer
  *= require home
  *= require job-page
