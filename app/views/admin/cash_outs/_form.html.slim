@@ -1,0 +1,14 @@
+- if @cash_out.errors.any?
+  = render partial: 'shared/common_errors', locals: { model: @cash_out }
+
+= form_for [:admin, @cash_out] do |f|
+  .form-group
+    = f.label :serial_outer
+    = f.text_field :serial_outer, class: 'form-control'
+  .form-group
+    = f.label :note
+    = f.text_area :note,class:'form-control'
+  .form-group
+    = f.submit class: 'btn btn-primary'
+    = link_to t('.back'), admin_cash_outs_path, class: 'btn btn-danger',
+      data: { dismiss: 'modal' }

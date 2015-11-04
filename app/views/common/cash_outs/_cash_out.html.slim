@@ -3,18 +3,16 @@ tr id="cash_out-#{cash_out.id}"
   td = cash_out.serial_inner
   td = cash_out.serial_outer
   td = cash_out.state_text
-  td = cash_out.note
   td
     .btn-group
       = link_to t('.show'), new_cash_out_path(cash_out),remote: true, class: 'btn btn-primary'
       button.btn.btn-primary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
         span.caret
         span.sr-only Toggle Dropdown
-      ul.dropdown-menu
-        li
-          = link_to t('.Cancel'),cancel_cash_out_path(cash_out), data: { confirm: "确定取消该条提现纪录么？" },remote: true
-        li
-          = link_to t('.Edit'),edit_cash_out_path(cash_out), remote: true
-        li
-          = link_to t('.Destroy'),cash_out_path(cash_out), method: :delete,
-            data: { confirm: "确定删除该条提现纪录么？" }, remote: true
+      - if cash_out.state.submitted?
+        ul.dropdown-menu
+          li
+            = link_to t('.Edit'),edit_cash_out_path(cash_out), remote: true
+          li
+            = link_to t('.Destroy'),cash_out_path(cash_out), method: :delete,
+                data: { confirm: "确定删除该条提现纪录么？" }, remote: true

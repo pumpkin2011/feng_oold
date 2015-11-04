@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :cash_ins do
       patch :reject, on: :member
     end
+    resources :cash_outs
   end
 
   # 公共

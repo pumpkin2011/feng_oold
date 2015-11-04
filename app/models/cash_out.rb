@@ -29,25 +29,17 @@ class CashOut < ActiveRecord::Base
   validates_presence_of :amount
   default_scope { order('updated_at desc') }
 
-  enumerize :state, in: [:pending, :success, :failure, :cancel]
+  enumerize :state, in: [:submitted, :pending, :success]
 
   aasm column: :state do
-    state :pending, :initial => true
+    state :submitted, :initial => true
+    state :pending
     state :success
-    state :failure
-    state :cancel
 
     event :success do
       transitions from: :pending, to: :success
     end
 
-    event :cancel do
-      transitions from: :pending, to: :cancel
-    end
-
-    event :failure do
-      transitions from: :pending, to: :failure
-    end
   end
 
   before_create do

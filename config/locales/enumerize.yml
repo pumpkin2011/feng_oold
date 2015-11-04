@@ -17,7 +17,6 @@ zh-CN:
         level7: '7000 ~ 8000'
         level8: '8000以上'
       state:
+        submitted:  '已提交'
         pending: '处理中'
         success: '提现成功'
-        failure: '提现失败'
-        cancel:  '取消提现' 

@@ -1,0 +1,15 @@
+tr id="cash_out-#{cash_out.id}"
+  td = cash_out.enterprise.name
+  td = cash_out.enterprise.mobile
+  td = cash_out.amount
+  td = cash_out.state_text
+  td
+    .btn-group
+      = link_to t('.Show'), admin_cash_out_path(cash_out),class: 'btn btn-primary',remote:true
+      button.btn.btn-primary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+        span.caret
+        span.sr-only Toggle Dropdown
+      - if cash_out.state.pending?
+        ul.dropdown-menu
+          li
+            = link_to t('.Edit'),edit_admin_cash_out_path(cash_out), remote: true

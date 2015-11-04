@@ -1,0 +1,72 @@
+.col-xs-12
+  .nav-tabs-custom
+    ul.nav.nav-tabs
+      li.active
+        a data-toggle="tab" href="#activity"  提现基本信息
+      li
+        a data-toggle="tab" href="#timeline"  提现银行卡信息
+    .tab-content
+      #activity.active.tab-pane
+
+        .post
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:name)
+            .col-xs-9
+              span = @cash_out.enterprise.name
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:mobile)
+            .col-xs-9
+              span = @cash_out.enterprise.mobile
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:email)
+            .col-xs-9
+              span = @cash_out.enterprise.email
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:amount)
+            .col-xs-9
+              span = @cash_out.amount
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:serial_inner)
+            .col-xs-9
+              span = @cash_out.serial_inner
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:serial_outer)
+            .col-xs-9
+              span = @cash_out.serial_outer
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:state)
+            .col-xs-9
+              span = @cash_out.state_text
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:note)
+            .col-xs-9
+              span = @cash_out.note
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:created_at)
+            .col-xs-9
+              span = @cash_out.created_at
+
+          .row
+            .col-xs-3
+              span = CashOut.human_attribute_name(:updated_at)
+            .col-xs-9
+              span = @cash_out.updated_at
+      #timeline.tab-pane
+        h3 银行卡信息
