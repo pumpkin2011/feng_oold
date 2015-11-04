@@ -1,0 +1,23 @@
+.row
+  .col-xs-2
+    = Company.human_attribute_name(:name)
+    '：
+  .col-xs-10
+    = @company.name
+br    
+.row
+  .col-xs-2
+    span 公司地址：
+  .col-xs-10
+    = render_common_china_city_address @company
+br    
+.row
+  .col-xs-2
+    = Company.human_attribute_name(:address)
+    '：
+  .col-xs-10
+    = @company.address
+br    
+.row
+  .col-xs-2
+    = link_to t('back'), admin_companies_path, class: 'btn btn-primary', data: { dismiss: 'modal' }

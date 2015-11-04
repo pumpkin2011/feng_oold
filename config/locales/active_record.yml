@@ -5,6 +5,7 @@ zh-CN:
       company: "代招企业"
       job: "招聘信息"
       labor: "工友"
+      enterprise: "用户管理"
       cash_out: "提现"
       cash_in: "充值信息"
     attributes:
@@ -67,3 +68,7 @@ zh-CN:
         state: "状态"
         channel: "渠道"
         created_at: "创建于"
+      enterprise:
+        name: "用户名"
+        mobile: "手机"
+        email: "邮箱"

@@ -1,0 +1,18 @@
+tr
+  td = link_to job.name, admin_job_path(job), remote: true
+  td = job.position.try(:name)
+  td = job.gender_text
+  td
+    = job.age_min
+    |-
+    = job.age_max
+    span 岁
+  td
+    = job.salary_min
+    |-
+    = job.salary_max
+  td = job.salary_basic
+  td = job.company.try(:name)
+  td = job.contact.try(:name)
+  td = job.state
+  td = link_to t('.show'), admin_job_path(job),remote: true, class: 'btn btn-primary'

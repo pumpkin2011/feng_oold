@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     root 'welcome#index'
     mount Sidekiq::Web => '/sidekiq'
     resources :labors
+    resources :jobs, only: [:index ,:show]
+    resources :contacts, only: [:index ,:show]
+    resources :companies, only: [:index ,:show]
+    resources :enterprises, only: [:index ,:show]
     resources :cash_ins do
       patch :reject, on: :member
     end

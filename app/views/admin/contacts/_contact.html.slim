@@ -1,0 +1,5 @@
+tr
+  td = link_to contact.name, [:admin, contact], remote: true
+  td = contact.gender_text
+  td = render_common_mobile contact.mobile
+  td = link_to t('.show'), [:admin, contact], remote: true, class: 'btn btn-primary'
