@@ -4,9 +4,9 @@
     <div class="index-job-header clearfix">
       <h2>热门岗位</h2>
       <ul>
-        <li class="active"><a href="#" title="">最新发布</a></li>
-        <li><a href="#">精品推荐</a></li>
-        <li><a href="#" >热门排行</a></li>
+        <li class="active"><a href="/" title="">最新发布</a></li>
+        <li><a href="/">精品推荐</a></li>
+        <li><a href="/" >热门排行</a></li>
       </ul>
     </div>
     <div class="job-cards">
@@ -15,7 +15,7 @@
           <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="job-card-item">
               <div class="job-img">
-                <a href="/course/561" target="_blank">
+                <a href="/" target="_blank">
                   <%= image_tag "qu.jpg", class: "img-responsive transform" %>
                 </a>
               </div>
@@ -43,11 +43,10 @@
       <div>深度合作，探索最便捷行业招聘方案</div>
     </div>
     <div class="row home-page-companies-slides">
-      <% Company.first(5).each do |company| %>
+      <% 4.times.each do |x| %>
         <div class="col-md-3 col-sm-6">
           <div class="company-card-item">
-            <%= image_tag "user_jenny.jpg", class: "company-avatar" %>
-            <%= link_to company.name, nil, class: "company-name" %>
+            <%= image_tag "company/company-#{x+1}.jpg", class: "company-avatar" %>
           </div>
         </div>
       <% end %>
@@ -58,6 +57,7 @@
   <div class="container">
     <h3>行业名企</h3>
     <p>已更新 2,432家企业</p>
+    <%= image_tag "mingqi.jpg" %>
   </div>
   <p class="what-we-do">
     <span>信息时代，淘帮忙帮您建立更好的招聘计划</span>
@@ -80,7 +80,7 @@
             </div>
             <h2>
               <i>名企优岗</i>
-              <a href="/article-1268.html">万圣节南瓜灯与小鬼魂更配哦</a>
+              <a href="/">万圣节南瓜灯与小鬼魂更配哦</a>
             </h2>
           </div>
           <div class="bottom">
@@ -88,7 +88,7 @@
               <%= image_tag "hot.jpg"%>
             </div>
             <p> 　　大王派我来巡山喽~　　今天阎王不在家，小鬼来当家，　　出去扮人要糖果好嘛好开心。　　今天阎王不在家，群魔来乱舞，　　南瓜、萝卜齐...</p>
-            <a href="/article-1268.html">查看全部&gt;</a>
+            <a href="/">查看全部&gt;</a>
           </div>
         </div>
       <% end %>
