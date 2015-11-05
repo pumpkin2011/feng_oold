@@ -55,6 +55,11 @@ zh-CN:
       cash_out:
         <<: *common
         amount: 提现金额
+        name: 申请人
+        mobile: 手机号
+        email: 邮箱
+        created_at: 申请时间
+        updated_at: 最后更新时间
         serial_inner: 提现编号
         serial_outer: 银行流水号
         state: 状态
