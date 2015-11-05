@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102061921) do
+ActiveRecord::Schema.define(version: 20151104022706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -277,6 +277,18 @@ ActiveRecord::Schema.define(version: 20151102061921) do
   add_index "labors", ["province"], name: "index_labors_on_province", using: :btree
   add_index "labors", ["state"], name: "index_labors_on_state", using: :btree
 
+  create_table "management_fees", force: :cascade do |t|
+    t.integer  "job_id"
+    t.integer  "amount",     null: false
+    t.integer  "months",     null: false
+    t.integer  "day",        null: false
+    t.integer  "deadline",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "management_fees", ["job_id"], name: "index_management_fees_on_job_id", using: :btree
+
   create_table "nodes", force: :cascade do |t|
     t.string   "name",         null: false
     t.string   "icon",         null: false
@@ -306,6 +318,18 @@ ActiveRecord::Schema.define(version: 20151102061921) do
   add_index "positions", ["parent_id"], name: "index_positions_on_parent_id", using: :btree
   add_index "positions", ["rgt"], name: "index_positions_on_rgt", using: :btree
 
+  create_table "recruitment_fees", force: :cascade do |t|
+    t.integer  "job_id"
+    t.string   "gender",     null: false
+    t.integer  "days",       null: false
+    t.integer  "amount",     null: false
+    t.integer  "deadline",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "recruitment_fees", ["job_id"], name: "index_recruitment_fees_on_job_id", using: :btree
+
   add_foreign_key "companies", "enterprises"
   add_foreign_key "contacts", "enterprises"
   add_foreign_key "debits", "banks"
@@ -315,4 +339,6 @@ ActiveRecord::Schema.define(version: 20151102061921) do
   add_foreign_key "jobs", "positions"
   add_foreign_key "labor_intentions", "labors"
   add_foreign_key "labors", "enterprises"
+  add_foreign_key "management_fees", "jobs"
+  add_foreign_key "recruitment_fees", "jobs"
 end

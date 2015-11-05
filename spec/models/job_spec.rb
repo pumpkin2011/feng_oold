@@ -43,6 +43,10 @@ RSpec.describe Job, type: :model do
   it { should belong_to(:company) }
   it { should belong_to(:contact) }
   it { should belong_to(:position) }
+  it { should have_one(:management_fee) }
+  it { should have_many(:recruitment_fees) }
+  it { should accept_nested_attributes_for(:management_fee) }
+  it { should accept_nested_attributes_for(:recruitment_fees) }
 
   it "标准数据" do
     expect(build(:job)).to be_valid
@@ -115,5 +119,10 @@ RSpec.describe Job, type: :model do
 
   describe "状态" do
     pending "状态详细"
+  end
+
+  it "级联删除" do
+    job = create(:job)
+    expect { job.destroy }.to change { ManagementFee.count }.by(-1)
   end
 end

@@ -35,6 +35,7 @@ gem 'china_city'
 gem 'sidekiq'
 gem 'sinatra', :require => nil
 gem 'rails-i18n'
+gem "nested_form"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

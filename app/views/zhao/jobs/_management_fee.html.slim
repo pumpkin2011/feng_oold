@@ -1,0 +1,25 @@
+= f.fields_for :management_fee do |mf|
+  p
+    .row
+      .col-md-3
+        small 共返费_个月
+      .col-md-3
+        small 每月返费_元
+      .col-md-3
+        small _号对名单
+      .col-md-3
+        small _多少天内结算
+    .row
+      = mf.hidden_field :_destroy, value: false
+      .col-md-3
+        / = mf.label :months, t('.months')
+        = mf.number_field :months, class: 'form-control management_fee_input', placeholder: '月数'
+      .col-md-3
+        / = mf.label :amount, t('.amount')
+        = mf.number_field :amount, class: 'form-control management_fee_input', placeholder: '金额'
+      .col-md-3
+        / = mf.label :day, t('.day')
+        = mf.number_field :day, class: 'form-control management_fee_input', placeholder: '几号'
+      .col-md-3
+        / = mf.label :deadline, t('.deadline')
+        = mf.number_field :deadline, class: 'form-control management_fee_input', placeholder: '天数'

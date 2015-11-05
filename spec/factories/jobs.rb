@@ -49,6 +49,9 @@ FactoryGirl.define do
     salary_basic 3000
     salary_min 2000
     salary_max 5000
+    after(:create) do |job, evaluator|
+      FactoryGirl.create_list(:management_fee, 1, job: job)
+    end
   end
 
 end
