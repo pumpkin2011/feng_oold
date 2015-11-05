@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 
 // AdminLTE
 //= require admin-lte/bootstrap/js/bootstrap
@@ -22,3 +21,5 @@
 
 // china_city
 //= require china_city/jquery.china_city
+//= require_tree .
+//= require turbolinks
