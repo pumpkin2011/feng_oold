@@ -1,0 +1,6 @@
+{
+    "src":          "./public/",
+    "dest":         "qiniu:access_key=Sjb4mHAwf7Ml6O_XofwmzoyjPG9XKRj9ZvM8SnvV&secret_key=pD3RzF9H57OcJVvE7Sq8uTx_KnihPm2qZR0jzDS0&bucket=assets-91tbm",
+    "deletable":    1,
+    "debug_level":  1
+}

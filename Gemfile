@@ -35,6 +35,7 @@ gem 'china_city'
 gem 'sidekiq'
 gem 'sinatra', :require => nil
 gem 'rails-i18n'
+gem 'puma'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -66,6 +67,8 @@ group :development do
   gem 'quiet_assets'
   gem 'pry-rails'
   gem 'rails-erd'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rails'
 end
 
 group :test do
