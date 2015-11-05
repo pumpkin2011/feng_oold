@@ -43,11 +43,10 @@
       <div>深度合作，探索最便捷行业招聘方案</div>
     </div>
     <div class="row home-page-companies-slides">
-      <% Company.first(5).each do |company| %>
+      <% 4.times.each do |x| %>
         <div class="col-md-3 col-sm-6">
           <div class="company-card-item">
-            <%= image_tag "user_jenny.jpg", class: "company-avatar" %>
-            <%= link_to company.name, nil, class: "company-name" %>
+            <%= image_tag "company/company-#{x+1}.jpg", class: "company-avatar" %>
           </div>
         </div>
       <% end %>
@@ -58,6 +57,7 @@
   <div class="container">
     <h3>行业名企</h3>
     <p>已更新 2,432家企业</p>
+    <%= image_tag "mingqi.jpg" %>
   </div>
   <p class="what-we-do">
     <span>信息时代，淘帮忙帮您建立更好的招聘计划</span>

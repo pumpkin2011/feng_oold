@@ -11,13 +11,6 @@ header {
         font-size: 18px;
       }
     }
-    li {
-      &:hover {
-        a {
-          color: #fff;
-        }
-      }
-    }
     a {
       font-size: 16px;
       i {
@@ -26,17 +19,34 @@ header {
     }
   }
   .navbar-header {
+    margin-top: 10px;
     margin-right: 20px !important;
+  }
+  .site-head {
+    height: 87px;
+    ul a {
+      height: 87px;
+      padding-top: 35px;
+    }
+    ul .navbar-form {
+      margin-top: 28px;
+    }
   }
   .navbar-default {
     background: #fff;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
     border: none;
+    li:hover {
+      background-color: #ffa900 !important;
+      a {
+        color: #fff !important;
+      }
+    }
     li.active {
       a {
-        background-color: #fff !important;
-        color: #ffa900 !important;
+        color: #fff !important;
+        background-color: #ffa900 !important;
       }
     }
     .form-search {
