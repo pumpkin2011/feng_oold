@@ -1,0 +1,17 @@
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title = Company.model_name.human
+        .box-tools
+          = paginate @companies
+      .box-body.table-responsive.no-padding
+        table.table.table-hover
+          tbody
+            tr
+              th = Company.human_attribute_name(:name)
+              th 公司地址
+              th = Company.human_attribute_name(:address)
+              th = Company.human_attribute_name(:jobs)
+              th = t ('.options')
+            = render @companies

@@ -1,0 +1,6 @@
+tr
+  td = company.name
+  td = render_common_china_city_address(company)
+  td = company.address
+  td = link_to t('.show'), '#',class: 'btn btn-primary'
+  td = link_to t('.show'), admin_company_path(company),remote: true, class: 'btn btn-primary'

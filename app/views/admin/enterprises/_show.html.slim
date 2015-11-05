@@ -1,0 +1,24 @@
+.row
+  .col-xs-2
+    = Enterprise.human_attribute_name(:name)
+    '：
+  .col-xs-10
+    = @enterprise.name
+br    
+.row
+  .col-xs-2
+    = Enterprise.human_attribute_name(:mobile)
+    '：
+  .col-xs-10
+    = @enterprise.mobile
+br    
+.row
+  .col-xs-2
+    = Enterprise.human_attribute_name(:email)
+    '：
+  .col-xs-10
+    = @enterprise.email
+br    
+.row
+  .col-xs-2
+    = link_to t('back'), admin_enterprises_path, class: 'btn btn-primary', data: { dismiss: 'modal' }

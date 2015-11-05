@@ -1,0 +1,24 @@
+.row
+  .col-xs-2
+    = Contact.human_attribute_name(:name)
+    '：
+  .col-xs-10
+    = @contact.name
+br    
+.row
+  .col-xs-2
+    = Contact.human_attribute_name(:gender)
+    '：
+  .col-xs-10
+    = @contact.gender_text
+br    
+.row
+  .col-xs-2
+    = Contact.human_attribute_name(:mobile)
+    '：
+  .col-xs-10
+    = render_common_mobile @contact.mobile
+br    
+.row
+  .col-xs-2
+    = link_to t('back'), admin_contacts_path, class: 'btn btn-primary', data: { dismiss: 'modal' }
