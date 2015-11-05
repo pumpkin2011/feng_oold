@@ -41,10 +41,17 @@ class Job < ActiveRecord::Base
   include AASM
   acts_as_paranoid
 
+  attr_accessor :fee_type
+
   belongs_to :enterprise
   belongs_to :company
   belongs_to :contact
   belongs_to :position
+  has_one    :management_fee, dependent: :destroy
+  has_many   :male_fees,   -> { where(gender: 'male') },   class_name: 'RecruitmentFee', dependent: :destroy
+  has_many   :female_fees, -> { where(gender: 'female') }, class_name: 'RecruitmentFee', dependent: :destroy
+
+  accepts_nested_attributes_for :management_fee, :male_fees, :female_fees, allow_destroy: true
 
   validates_presence_of :name, :gender, :age_min, :age_max, :salary_min, :salary_max,
                         :salary_basic, :state, :enterprise, :position, :company, :contact
@@ -64,4 +71,27 @@ class Job < ActiveRecord::Base
     #   transitions :from => [:running, :cleaning], :to => :sleeping
     # end
   end
+
+  def self.before_edit(job)
+    job.male_fees.build if job.male_fees.blank?
+    job.female_fees.build if job.female_fees.blank?
+    job.build_management_fee if job.management_fee.blank?
+  end
+
+  # def self.filter_params(params)
+  #   gender = params[:gender]
+  #   fee_type = params[:fee_type]
+  #
+  #   if fee_type == 'management' then
+  #     params.except!(:female_fees_attributes, :male_fees_attributes)
+  #   else
+  #     params.except!(:management_fee_attributes) if fee_type == 'recruitment'
+  #     if gender == 'female' then
+  #       params[:male_fees_attributes].map { |k, v| v[:_destroy]=true } if params[:male_fees_attributes]
+  #     elsif gender == 'male' then
+  #       params[:female_fees_attributes].map { |k, v| v[:_destroy]=true } if params[:female_fees_attributes]
+  #     end
+  #   end
+  #   params
+  # end
 end

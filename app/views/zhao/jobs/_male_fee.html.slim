@@ -1,0 +1,21 @@
+= f.fields_for :male_fees do |rf|
+  p
+    .row
+      .col-md-3
+        small 男工友入职满_天
+      .col-md-3
+        small 返费_元
+      .col-md-3
+        small _天内对名单
+    .row
+      = rf.hidden_field :_destroy, value: false
+      = rf.hidden_field :gender, value: 'male', class: 'form-control'
+      .col-md-3
+        = rf.number_field :days, class: 'form-control'
+      .col-md-3
+        = rf.number_field :amount, class: 'form-control'
+      .col-md-3
+        = rf.number_field :deadline, class: 'form-control'
+      .col-md-3
+        = rf.link_to_remove do
+          span.glyphicon.glyphicon-minus.text-red aria-hidden="true"
