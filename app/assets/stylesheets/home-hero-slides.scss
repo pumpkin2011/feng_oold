@@ -1,0 +1,45 @@
+.home-hero-slides {
+  width: 100%;
+  margin-bottom: 5px;
+  .slick-dots {
+    bottom: 12px;
+    button:before {
+      color: #fff;
+      font-size: 40px;
+      content: "\25AC"
+    }
+    li.slick-active {
+      button:before {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.guarantee {
+  h3 {
+    color: #ffa900;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  p {
+    color: #a0a0a0;
+  }
+  .join-btn {
+    background: #fff;
+    color: #ffa900;
+    margin-left: 20px;
+    border: 1px solid #ffa900;
+  }
+  .pull-left {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .pull-right {
+    margin-top: 40px;
+    margin-bottom: 20px
+  }
+  .stats {
+    color: #6ba324;
+  }
+}

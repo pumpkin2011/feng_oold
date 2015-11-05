@@ -6,14 +6,14 @@
 
       <div class="job-img">
 
-        <%= image_tag "job-page-img.jpg", class: "img-responsive" %>
+        <%= image_tag "qu.jpg", class: "img-responsive" %>
         <div class="tags">
         </div>
       </div>
 
 
       <div class="job-info">
-        <h2 class="title">国家助理营销师（三级）—— 基础知识</h2>
+        <h2 class="title"><%= @job.name %></h2>
         <div class="subtitle"></div>
         <div class="metas">
           <div class="score">
@@ -70,17 +70,6 @@
                     <p><i class="fa fa-share-alt"></i></p>
                     <p>分享</p>
                   </a>
-
-                  <div class="dropdown-menu  js-social-share-params" data-title="国家助理营销师（三级）—— 基础知识" data-summary="&nbsp; &nbsp; &nbsp; &nbsp; 欢迎各位学生参加乐易考国家助理营销师（三级）培训课堂。&nbsp; &nbsp; &nbsp; &nbsp; 国家助理营销师..." data-message="我正在学习《国家助理营销师（三级）—— 基础知识》，收获巨大哦，一起来学习吧！" data-url="http://www.leyikao.com/course/560" data-picture="/files/default/2015/10-13/11030265d5bc323469.jpg?6.2.3">
-
-                    <a href="javascript:;" class="js-social-share" data-cmd="weixin" title="分享到微信" data-share="weixin" data-qrcode-url="/common/qrcode?text=http%3A%2F%2Fwww.leyikao.com%2Fcourse%2F560"><i class="es-icon es-icon-weixin"></i></a>
-                    <a href="javascript:;" class="js-social-share" data-cmd="tsina" title="分享到新浪微博" data-share="weibo"><i class="es-icon es-icon-weibo"></i></a>
-                    <a href="javascript:;" class="js-social-share" data-cmd="qq" title="分享到QQ好友" data-share="qq"><i class="es-icon es-icon-qq"></i></a>
-                    <a href="javascript:;" class="js-social-share" data-cmd="qzone" title="分享到QQ空间" data-share="qzone"><i class="es-icon es-icon-qzone"></i></a>
-
-                  </div>
-
-
                 </span>
               </li>
 
@@ -101,7 +90,7 @@
 <section class="related-jobs">
   <div class="container">
     <div class="related-label hidden-xs hidden-sm">推荐岗位</div>
-    <div class="recommend-job-slides">
+    <div class="recommend-jobs-slides">
       <div class="slide-item">
         <h3>1</h3>
       </div>
@@ -141,8 +130,7 @@
     <div class="col-lg-3 col-md-4 job-sidebar">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"> <i class="es-icon es-icon-assignmentind"></i>
-            授课老师
+          <h3 class="panel-title">
           </h3>
         </div>
         <div class="panel-body">

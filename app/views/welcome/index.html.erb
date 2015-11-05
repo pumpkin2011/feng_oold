@@ -1,74 +1,32 @@
-<%= render 'layouts/hero_unit' %>
-<section class="recommend-job">
+<%= render 'layouts/home_hero_slides' %>
+<section class="hot-job-list">
   <div class="container">
-    <div class="recommend-job-header">
-      <div class="text-line">
-        <h3><span>推荐岗位</span></h3>
+    <div class="index-job-header clearfix">
+      <h2>热门岗位</h2>
+      <ul>
+        <li class="active"><a href="#" title="">最新发布</a></li>
+        <li><a href="#">精品推荐</a></li>
+        <li><a href="#" >热门排行</a></li>
+      </ul>
     </div>
-    <div class="row home-page-job-slides">
-      <% Job.first(5).each do |job| %>
-        <div class="col-md-3 col-sm-6">
-
-          <div class="job-item">
-            <div class="job-top">
-              <%= image_tag "user_jenny.jpg", class: "job-avatar" %>
-              <h3 class="title">
-                <%= link_to job.name, recommend_job_path(job), class: "link-light" %>
-              </h3>
-              <div class="position">
-                基本工资：<%= job.salary_basic %>
-              </div>
-            </div>
-            <div class="job-bottom">
-              <div class="about">
-                年龄：<%= job.age_min %> ~ <%= job.age_max %>
-              </div>
-              <div class="metas">
-                <a class="btn btn-primary btn-high btn-sm follow-btn" href="javascript:;" data-url="/user/3/follow" data-loggedin="0">报名</a>
-                <a class="btn btn-default btn-high btn-sm unfollow-btn" href="javascript:;" data-url="/user/3/unfollow" style="display:none;">已关注</a>
-                <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal" data-url="/message/create/3">关注</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      <% end %>
-    </div>
-  </div>
-</section>
-<section class="course-list-section">
-  <div class="container">
-    <div class="index-course-header">
-      <div class="header-line" id="course-filter">
-        <h2><a href="/explore-jrck01_01/" title="资格证书">合作企业</a></h2>
-        <ul>
-          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=19&amp;orderBy=recommendedSeq&amp;type=tab" data-num="19"><a href="javascript:;" title="">推荐</a></li>
-          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=20&amp;orderBy=latest&amp;type=tab" data-num="19"><a href="javascript:;" title="财会">财会</a></li>
-          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=45&amp;orderBy=latest&amp;type=tab" data-num="19"><a href="javascript:;" title="金融">金融</a></li>
-          <li role="presentation" class=" js-course-filter" data-url="/course/search?categoryId=54&amp;orderBy=latest&amp;type=tab" data-num="19"><a href="javascript:;" title="其他">其他</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="course-list" id="course-list-19">
+    <div class="job-cards">
       <div class="row">
-        <% Company.first(5).each do |company| %>
+        <% Job.first(5).each do |job| %>
           <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="course-item">
-              <div class="course-img">
-                <a href="/course/561" target="_blank" title=" 国家助理营销师（三级）—— 专业技能">
+            <div class="job-card-item">
+              <div class="job-img">
+                <a href="/course/561" target="_blank">
                   <%= image_tag "qu.jpg", class: "img-responsive transform" %>
                 </a>
               </div>
-              <div class="course-body">
-                <div class="title" style="margin-top: 0px;">
-                  <h2> <a class="link-dark" href="/course/561" target="_blank" title=" 国家助理营销师（三级）—— 专业技能"> <%= company.name %>  </a> </h2>
-                  <p><span class="glyphicon glyphicon-user"></span>1</p>
-                  <p>
-                    <span class="course-price-widget">
-                      <span class="price"> 免费</span>
-                    </span>
-                    <a class=" " href="/teacher/578515" target="_blank" title="肖忠野"> 肖忠野 </a>
-                  </p>
+              <div class="job-card-body">
+                <div class="salary">
+                  <i class="fa fa-jpy"></i>
+                  <span class="salary-range"><%= job.salary_min %> ~ <%= job.salary_max %></span> 元/月
+                  <span><%= job.created_at.strftime("%Y-%m-%d") %></span>
+                </div>
+                <div class="job-name">
+                  <%= link_to job.name, hot_job_path(job) %>
                 </div>
               </div>
             </div>
@@ -78,14 +36,39 @@
     </div>
   </div>
 </section>
+<section class="recommend-company">
+  <div class="container">
+    <div class="recommend-companies-header">
+      <h3><span>合作企业</span></h3>
+      <div>深度合作，探索最便捷行业招聘方案</div>
+    </div>
+    <div class="row home-page-companies-slides">
+      <% Company.first(5).each do |company| %>
+        <div class="col-md-3 col-sm-6">
+          <div class="company-card-item">
+            <%= image_tag "user_jenny.jpg", class: "company-avatar" %>
+            <%= link_to company.name, nil, class: "company-name" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<section class="unicorn-companies">
+  <div class="container">
+    <h3>行业名企</h3>
+    <p>已更新 2,432家企业</p>
+  </div>
+  <p class="what-we-do">
+    <span>信息时代，淘帮忙帮您建立更好的招聘计划</span>
+    <button class="join-us">我要合作</button>
+  </p>
+</section>
+
 <section class="information">
   <div class="container">
     <div class="information-header">
-      <div class="text-line">
         <h3><span>热门资讯</span></h3>
-        <div class="line"></div>
-        <a href="/article" class="more"><i class="es-icon es-icon-morehoriz"></i></a>
-      </div>
     </div>
     <div class="row">
       <% 4.times do |i| %>

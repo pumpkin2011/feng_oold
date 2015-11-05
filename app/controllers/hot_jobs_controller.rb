@@ -1,4 +1,4 @@
-class RecommendJobsController < ApplicationController
+class HotJobsController < ApplicationController
   layout "user"
   before_action :set_job, only: [:show]
   respond_to :html

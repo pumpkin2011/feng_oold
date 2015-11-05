@@ -1,5 +1,5 @@
 $ ->
-  $('.recommend-job-slides').slick
+  $('.recommend-jobs-slides').slick
     arrows: false,
     slidesToShow: 3,
     slidesToSroll: 3,
