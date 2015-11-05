@@ -8,10 +8,14 @@
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="＃">我是HR</a></li>
-        <li><a href="＃">我是中介</a></li>
-        <li><a href="＃">手机端 <i class="fa fa-mobile"></i> </a></li>
-        <li><a href="＃">帮助中心</a></li>
+        <li>
+          <%= link_to '我是HR', new_enterprise_session_path %>
+        </li>
+        <li>
+          <%= link_to '我是中介', new_enterprise_session_path %>
+        </li>
+        <li><a href="/">手机端 <i class="fa fa-mobile"></i> </a></li>
+        <li><a href="/">帮助中心</a></li>
       </ul>
     </div>
   </nav>
@@ -23,14 +27,14 @@
         <li class="active"><a href="/">首页</a></li>
         <li class="category-menu">
           <input type="checkbox" id="c-menu"></input>
-          <a href="#">
+          <a href="javascript:;">
             <label for="c-menu">所有职位</label>
           </a>
           <div class="category-list">
             <% Position.where(parent_id: nil).each do |position| %>
             <div class="category-item">
               <h2>
-                <a class="first" href="/explore-jrck01_01/" target="_blank" title=""><%= position.name %></a>
+                <a class="first" href="/" target="_blank" title=""><%= position.name %></a>
                 <span class="glyphicon glyphicon-menu-right fr"></span>
               </h2>
               <ul>
@@ -39,7 +43,7 @@
                 <dl>
                   <dd>
                     <% position.children.each do |child| %>
-                    <a href="/explore-jrck01_01/ck1001_02/kjcyzg100101_03/" target="_blank" title=""><%= child.name %></a>
+                    <a href="/" target="_blank" title=""><%= child.name %></a>
                     <% end %>
                   </dd>
                 </dl>
@@ -48,14 +52,22 @@
             <% end %>
           </div>
         </li>
-        <li><a href="＃">我要招聘</a></li>
-        <li><a href="＃">我要送人</a></li>
-        <li><a href="＃">关于我们</a></li>
-        <li><a href="＃">联系我们</a></li>
+        <li>
+          <%= link_to '我要招聘', new_enterprise_session_path %>
+        </li>
+        <li>
+          <%= link_to '我要送人', new_enterprise_session_path %>
+        </li>
+        <li><a href="/">关于我们</a></li>
+        <li><a href="/">联系我们</a></li>
       </ul>
       <ul class="nav user-bar navbar-nav navbar-right">
-        <li><a href="#">登录</a></li>
-        <li><a href="#">注册</a></li>
+        <li>
+          <%= link_to '登录', new_enterprise_session_path %>
+        </li>
+        <li>
+          <%= link_to '注册', new_enterprise_registration_path %>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-search hidden-xs">
