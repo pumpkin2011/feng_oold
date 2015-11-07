@@ -16,4 +16,10 @@ Rails.application.config.assets.precompile += %w(
   admin-lte/dist/img/boxed-bg.jpg
   slick-carousel/slick/ajax-loader.gif
   job.js
+
+
+  enterprise.js
+  enterprise.css
+  user.js
+  user.css
 )

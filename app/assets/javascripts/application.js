@@ -12,14 +12,3 @@
 //
 //= require jquery
 //= require jquery_ujs
-
-// AdminLTE
-//= require admin-lte/bootstrap/js/bootstrap
-//= require admin-lte/dist/js/app
-
-//= require slick-carousel/slick/slick.min
-
-// china_city
-//= require china_city/jquery.china_city
-//= require_tree .
-//= require turbolinks

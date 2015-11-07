@@ -3,4 +3,6 @@
  *= require admin-lte/bootstrap/css/bootstrap
  *= require font-awesome/css/font-awesome
  *= require ionicons/css/ionicons
+ *= require admin-lte/dist/css/AdminLTE
+ *= require admin-lte/dist/css/skins/skin-blue
  */
