@@ -1,5 +1,5 @@
 tr
-  td = job.name
+  td = link_to job.name, [:song, job],remote: true
   td = job.position.try(:name)
   td = job.gender_text
   td
@@ -15,4 +15,6 @@ tr
   td = job.company.try(:name)
   td = job.contact.try(:name)
   td = job.state
-  td = link_to t('.show'), [:song, job],remote: true, class: 'btn btn-primary'
+  td = link_to_unless @labor.try('yidengji?'), t('.show'), [:song, job], class: 'btn btn-primary', remote: true do
+      = button_to 'submit', song_appointments_path(job: job, labor: @labor),
+        remote: true, class: 'btn btn-primary'

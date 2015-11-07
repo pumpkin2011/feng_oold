@@ -2,22 +2,24 @@
 #
 # Table name: jobs
 #
-#  id            :integer          not null, primary key
-#  enterprise_id :integer
-#  company_id    :integer
-#  contact_id    :integer
-#  position_id   :integer
-#  name          :string           not null
-#  gender        :string           not null
-#  age_min       :integer          not null
-#  age_max       :integer          not null
-#  salary_basic  :integer          not null
-#  salary_min    :integer          not null
-#  salary_max    :integer          not null
-#  state         :string           not null
-#  deleted_at    :datetime
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                 :integer          not null, primary key
+#  enterprise_id      :integer
+#  company_id         :integer
+#  contact_id         :integer
+#  position_id        :integer
+#  name               :string           not null
+#  gender             :string           not null
+#  age_min            :integer          not null
+#  age_max            :integer          not null
+#  salary_basic       :integer          not null
+#  salary_min         :integer          not null
+#  salary_max         :integer          not null
+#  state              :string           not null
+#  deleted_at         :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  quantity           :integer          not null
+#  appointments_count :integer
 #
 # Indexes
 #
@@ -49,6 +51,7 @@ FactoryGirl.define do
     salary_basic 3000
     salary_min 2000
     salary_max 5000
+    quantity 100
     after(:create) do |job, evaluator|
       FactoryGirl.create_list(:management_fee, 1, job: job)
     end

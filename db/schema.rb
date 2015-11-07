@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104022706) do
+ActiveRecord::Schema.define(version: 20151106032026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,23 @@ ActiveRecord::Schema.define(version: 20151104022706) do
   add_index "admins", ["name"], name: "index_admins_on_name", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true, using: :btree
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "job_id"
+    t.integer  "labor_id"
+    t.integer  "zhao_id"
+    t.integer  "song_id"
+    t.string   "state"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "appointments", ["job_id"], name: "index_appointments_on_job_id", using: :btree
+  add_index "appointments", ["labor_id"], name: "index_appointments_on_labor_id", using: :btree
+  add_index "appointments", ["song_id"], name: "index_appointments_on_song_id", using: :btree
+  add_index "appointments", ["state"], name: "index_appointments_on_state", using: :btree
+  add_index "appointments", ["zhao_id"], name: "index_appointments_on_zhao_id", using: :btree
 
   create_table "banks", force: :cascade do |t|
     t.string   "name",         null: false
@@ -204,17 +221,19 @@ ActiveRecord::Schema.define(version: 20151104022706) do
     t.integer  "company_id"
     t.integer  "contact_id"
     t.integer  "position_id"
-    t.string   "name",          null: false
-    t.string   "gender",        null: false
-    t.integer  "age_min",       null: false
-    t.integer  "age_max",       null: false
-    t.integer  "salary_basic",  null: false
-    t.integer  "salary_min",    null: false
-    t.integer  "salary_max",    null: false
-    t.string   "state",         null: false
+    t.string   "name",               null: false
+    t.string   "gender",             null: false
+    t.integer  "age_min",            null: false
+    t.integer  "age_max",            null: false
+    t.integer  "salary_basic",       null: false
+    t.integer  "salary_min",         null: false
+    t.integer  "salary_max",         null: false
+    t.string   "state",              null: false
     t.datetime "deleted_at"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "quantity",           null: false
+    t.integer  "appointments_count"
   end
 
   add_index "jobs", ["age_max"], name: "index_jobs_on_age_max", using: :btree
@@ -330,6 +349,8 @@ ActiveRecord::Schema.define(version: 20151104022706) do
 
   add_index "recruitment_fees", ["job_id"], name: "index_recruitment_fees_on_job_id", using: :btree
 
+  add_foreign_key "appointments", "jobs"
+  add_foreign_key "appointments", "labors"
   add_foreign_key "companies", "enterprises"
   add_foreign_key "contacts", "enterprises"
   add_foreign_key "debits", "banks"

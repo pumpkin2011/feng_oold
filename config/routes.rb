@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root 'welcome#index'
     resources :labors
     resources :jobs, only: [:index ,:show]
+    resources :appointments, only: [:index, :create]
   end
 
   # 招聘方

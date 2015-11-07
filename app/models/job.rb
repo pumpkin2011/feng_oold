@@ -2,22 +2,24 @@
 #
 # Table name: jobs
 #
-#  id            :integer          not null, primary key
-#  enterprise_id :integer
-#  company_id    :integer
-#  contact_id    :integer
-#  position_id   :integer
-#  name          :string           not null
-#  gender        :string           not null
-#  age_min       :integer          not null
-#  age_max       :integer          not null
-#  salary_basic  :integer          not null
-#  salary_min    :integer          not null
-#  salary_max    :integer          not null
-#  state         :string           not null
-#  deleted_at    :datetime
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                 :integer          not null, primary key
+#  enterprise_id      :integer
+#  company_id         :integer
+#  contact_id         :integer
+#  position_id        :integer
+#  name               :string           not null
+#  gender             :string           not null
+#  age_min            :integer          not null
+#  age_max            :integer          not null
+#  salary_basic       :integer          not null
+#  salary_min         :integer          not null
+#  salary_max         :integer          not null
+#  state              :string           not null
+#  deleted_at         :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  quantity           :integer          not null
+#  appointments_count :integer
 #
 # Indexes
 #
@@ -48,6 +50,7 @@ class Job < ActiveRecord::Base
   belongs_to :contact
   belongs_to :position
   has_one    :management_fee, dependent: :destroy
+  has_many   :appointments
   has_many   :male_fees,   -> { where(gender: 'male') },   class_name: 'RecruitmentFee', dependent: :destroy
   has_many   :female_fees, -> { where(gender: 'female') }, class_name: 'RecruitmentFee', dependent: :destroy
 

@@ -2,22 +2,24 @@
 #
 # Table name: jobs
 #
-#  id            :integer          not null, primary key
-#  enterprise_id :integer
-#  company_id    :integer
-#  contact_id    :integer
-#  position_id   :integer
-#  name          :string           not null
-#  gender        :string           not null
-#  age_min       :integer          not null
-#  age_max       :integer          not null
-#  salary_basic  :integer          not null
-#  salary_min    :integer          not null
-#  salary_max    :integer          not null
-#  state         :string           not null
-#  deleted_at    :datetime
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                 :integer          not null, primary key
+#  enterprise_id      :integer
+#  company_id         :integer
+#  contact_id         :integer
+#  position_id        :integer
+#  name               :string           not null
+#  gender             :string           not null
+#  age_min            :integer          not null
+#  age_max            :integer          not null
+#  salary_basic       :integer          not null
+#  salary_min         :integer          not null
+#  salary_max         :integer          not null
+#  state              :string           not null
+#  deleted_at         :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  quantity           :integer          not null
+#  appointments_count :integer
 #
 # Indexes
 #
@@ -44,9 +46,12 @@ RSpec.describe Job, type: :model do
   it { should belong_to(:contact) }
   it { should belong_to(:position) }
   it { should have_one(:management_fee) }
-  it { should have_many(:recruitment_fees) }
+  it { should have_many(:male_fees) }
+  it { should have_many(:female_fees) }
   it { should accept_nested_attributes_for(:management_fee) }
-  it { should accept_nested_attributes_for(:recruitment_fees) }
+  it { should accept_nested_attributes_for(:male_fees) }
+  it { should accept_nested_attributes_for(:female_fees) }
+  it { should have_many(:appointments) }
 
   it "标准数据" do
     expect(build(:job)).to be_valid
@@ -121,8 +126,4 @@ RSpec.describe Job, type: :model do
     pending "状态详细"
   end
 
-  it "级联删除" do
-    job = create(:job)
-    expect { job.destroy }.to change { ManagementFee.count }.by(-1)
-  end
 end

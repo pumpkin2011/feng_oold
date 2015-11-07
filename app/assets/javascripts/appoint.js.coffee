@@ -1,0 +1,3 @@
+$ ->
+  $('#batch-appoint').click (e) ->
+    

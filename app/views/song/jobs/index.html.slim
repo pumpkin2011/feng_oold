@@ -1,3 +1,13 @@
+- if flash[:message]
+  .row
+    .col-xs-12
+      .alert.alert-success role='alert'
+        = @labor.name
+
+.row
+  .col-xs-12
+    = link_to '批量报名', "javascript:;", id: 'batch-appoint', class: 'btn btn-primary'
+
 .row
   .col-xs-12
     .box
@@ -22,3 +32,4 @@
               th = t('.options')
 
             = render @jobs
+    = link_to t('.labors'), song_labors_path, class: 'btn btn-danger'

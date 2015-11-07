@@ -47,7 +47,8 @@ end
     salary_basic: "5000",
     position: Position.take,
     company: Company.take,
-    contact: Contact.take
+    contact: Contact.take,
+    quantity: 100
   )
 
   # 充值
