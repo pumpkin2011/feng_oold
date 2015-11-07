@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <%= stylesheet_link_tag 'application'%>
   <%= stylesheet_link_tag 'user'%>
-  <%= stylesheet_link_tag params[:controller] %>
+  <%= stylesheet_link_tag params[:controller].gsub('/','_') %>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -21,12 +21,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
   <%= csrf_meta_tags %>
 </head>
-<body id="<%= params[:controller] %>-page">
+<body id="<%= params[:controller].gsub('/','-') %>" class="<%= params[:action] %>">
   <%= render 'layouts/site_header' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'user' %>
-  <%= javascript_include_tag params[:controller] %>
+  <%= javascript_include_tag params[:controller].gsub('/','_') %>
   <%= yield :js %>
 </body>
